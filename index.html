@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Kendi Cadet, Technicien Support IT et administrateur réseau (BTS SIO SISR).">
+    <meta name="description" content="Site de l'équipe IRIS, BTS SIO SISR.">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/proprieties.css">
     <link rel="stylesheet" href="./assets/css/KeyFrames.css">
-    <title>Portfolio - Kendi Cadet</title>
+    <title>Site de l'équipe IRIS - BTS SIO SISR</title>
 </head>
 
 <body>
@@ -27,12 +27,12 @@
 
         <header>
             <div class="conteneur-image">
-                <img src="./assets/images/backgroundimg.jpg" alt="Image de fond bureau">
+                <img src="./assets/images/backgroundimg.jpg" alt="Image de fond de l'équipe">
             </div>
             <div class="banniere">
-                <h1 class="style-titre">Portfolio de Kendi</h1>
+                <h1 class="style-titre">Site de l'équipe IRIS</h1>
                 <p>BTS SIO SISR</p>
-                <a class="bouton-personnalise" id="bouton-banniere" href="#" onclick="ouvrirModale('cvModal'); return false;">En savoir plus</a>
+                <a class="bouton-personnalise" id="bouton-banniere" href="#" onclick="ouvrirModale('cvModal'); return false;">Découvrir l'équipe</a>
             </div>
         </header>
 
@@ -45,14 +45,40 @@
                 </ul>
             </nav>
             <div class="reseaux-sociaux">
-                <a href="https://github.com/Kendi021" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/kendi-cadet" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </aside>
 
+        <!-- nouvelle section pour présenter les membres de l'équipe -->
+        <section class="section-equipe" id="membres">
+            <div class="entete-section-terminal" data-animation="haut">
+                <h1>Notre équipe</h1>
+            </div>
+            <div class="membres-list" data-animation="haut">
+                <div class="membre">
+                    <h3>CADET Kendi</h3>
+                    <p>Rôle / SISR</p>
+                </div>
+                <div class="membre">
+                    <h3>Prénom Nom</h3>
+                    <p>Rôle / Spécialité</p>
+                </div>
+                <div class="membre">
+                    <h3>Prénom Nom</h3>
+                    <p>Rôle / Spécialité</p>
+                </div>
+                <div class="membre">
+                    <h3>Prénom Nom</h3>
+                    <p>Rôle / Spécialité</p>
+                </div>
+                <!-- fiche de chaque membre (photos retirées selon la demande) -->
+            </div>
+        </section>
+
         <section class="section-competences" id="competences">
             <div class="entete-section-terminal" data-animation="haut">
-                <h1>Compétences</h1>
+                <h1>Nos compétences</h1>
             </div>
 
             <div class="terminal-container">
@@ -76,7 +102,7 @@
                             <div class="circle yellow"></div>
                             <div class="circle green"></div>
                         </div>
-                        <div class="title"><i class="fas fa-home"></i> guest@portfolio: ~/skills</div>
+                        <div class="title"><i class="fas fa-home"></i> guest@iris-site: ~/skills</div>
                     </div>
 
                     <div class="terminal-screen">
@@ -85,7 +111,7 @@
                                 <span class="text-muted">Tapez <span class="cyan">'help'</span> pour voir la liste des commandes disponibles.</span>
                             </div>
                             <div class="line">
-                                <span class="text-muted">Ou essayez <span class="orange">'ls'</span> pour lister mes compétences.</span>
+                                <span class="text-muted">Ou essayez <span class="orange">'ls'</span> pour lister nos compétences.</span>
                             </div>
                             <div class="line"><br></div>
                         </div>
@@ -115,7 +141,7 @@
 
         <section class="section-projets" id="projets">
             <div class="entete-projets">
-                <h1>Projets</h1>
+                <h1>Projets de l'équipe</h1>
             </div>
             <div class="cartes-projets">
                 <div class="carte" data-animation="haut">
@@ -172,6 +198,7 @@
         <div class="barre-outils-mobile">
             <nav>
                 <a href="#" class="outil-link"><i class="fas fa-home"></i><span>Accueil</span></a>
+                <a href="#membres" class="outil-link"><i class="fas fa-users"></i><span>Équipe</span></a>
                 <a href="#competences" class="outil-link"><i class="fas fa-cogs"></i><span>Compétences</span></a>
                 <a href="#projets" class="outil-link"><i class="fas fa-folder-open"></i><span>Projets</span></a>
             </nav>
@@ -191,7 +218,7 @@
         <div id="cvModal" class="modale">
             <div class="contenu-modale" style="height: 90vh;"> 
                 <span class="fermer-modale" onclick="fermerModale('cvModal')">&times;</span>
-                <h2 style="text-align:center; margin-bottom:15px; font-family: var(--font-primary);">Mon Curriculum Vitae</h2>
+                <h2 style="text-align:center; margin-bottom:15px; font-family: var(--font-primary);">Présentation de l'équipe</h2>
                 
                 <iframe src="./docs/CV de kendi.pdf" type="application/pdf" width="100%" height="90%">
                     <p>Votre navigateur ne supporte pas l'affichage des PDF.

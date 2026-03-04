@@ -199,6 +199,53 @@ header {
     animation: moveBanner 1s forwards;
 }
 
+/* --- SECTION EQUIPE --- */
+.section-equipe {
+    background-color: #f9f9f9;
+    padding: 2rem 0;
+}
+.section-equipe .membres-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+.section-equipe .membre {
+    width: 200px;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.section-equipe .membre:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.section-equipe .membre img {
+    display: none; /* images removed as per request */
+}
+.section-equipe .membre h3 {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+}
+.section-equipe .membre p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .section-equipe .membres-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .section-equipe .membre {
+        width: 80%;
+    }
+}
+
 /* --- BARRE LATÉRALE (SIDEBAR) --- */
 .barre-laterale {
     width: 20rem;
