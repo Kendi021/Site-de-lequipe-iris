@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Kendi Cadet, Technicien Support IT et administrateur réseau (BTS SIO SISR).">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/proprieties.css">
+    <link rel="stylesheet" href="./assets/css/KeyFrames.css">
+    <title>Portfolio - Kendi Cadet</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu-burger" id="fermer-menu">
+            <div class="ligne" id="ligne1"></div>
+            <div class="ligne" id="ligne2"></div>
+            <div class="ligne" id="ligne3"></div>
+            <span>Fermer</span>
+        </div>
+
+        <header>
+            <div class="conteneur-image">
+                <img src="./assets/images/backgroundimg.jpg" alt="Image de fond bureau">
+            </div>
+            <div class="banniere">
+                <h1 class="style-titre">Portfolio de Kendi</h1>
+                <p>BTS SIO SISR</p>
+                <a class="bouton-personnalise" id="bouton-banniere" href="#" onclick="ouvrirModale('cvModal'); return false;">En savoir plus</a>
+            </div>
+        </header>
+
+        <aside class="barre-laterale">
+            <nav>
+                <ul class="menu">
+                    <li class="element-menu"><a href="#" class="lien-menu">Accueil</a></li>
+                    <li class="element-menu"><a href="#competences" class="lien-menu">Compétences</a></li>
+                    <li class="element-menu"><a href="#projets" class="lien-menu">Projets</a></li>
+                </ul>
+            </nav>
+            <div class="reseaux-sociaux">
+                <a href="https://github.com/Kendi021" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kendi-cadet" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </aside>
+
+        <section class="section-competences" id="competences">
+            <div class="entete-section-terminal" data-animation="haut">
+                <h1>Compétences</h1>
+            </div>
+
+            <div class="terminal-container">
+                <div class="terminal-sidebar" data-animation="haut">
+                    <h3><i class="fas fa-terminal"></i> Menu</h3>
+                    <ul class="command-list">
+                        <li onclick="runCommand('ls')"><i class="fas fa-list"></i> Lister (ls)</li>
+                        <li onclick="runCommand('cat html.md')"><i class="fab fa-html5"></i> HTML5</li>
+                        <li onclick="runCommand('node script.js')"><i class="fab fa-js"></i> JavaScript</li>
+                        <li onclick="runCommand('python main.py')"><i class="fab fa-python"></i> Python</li>
+                        <li onclick="runCommand('cat linux.txt')"><i class="fab fa-linux"></i> Linux</li>
+                        <li onclick="runCommand('active directory')"><i class="fab fa-windows"></i> Active Directory</li>
+                        <li onclick="runCommand('clear')"><i class="fas fa-eraser"></i> Effacer</li>
+                    </ul>
+                </div>
+
+                <div class="terminal-window" onclick="focusTerminal()" data-animation="haut">
+                    <div class="terminal-bar">
+                        <div class="buttons">
+                            <div class="circle red"></div>
+                            <div class="circle yellow"></div>
+                            <div class="circle green"></div>
+                        </div>
+                        <div class="title"><i class="fas fa-home"></i> guest@portfolio: ~/skills</div>
+                    </div>
+
+                    <div class="terminal-screen">
+                        <div id="terminal-output">
+                            <div class="line">
+                                <span class="text-muted">Tapez <span class="cyan">'help'</span> pour voir la liste des commandes disponibles.</span>
+                            </div>
+                            <div class="line">
+                                <span class="text-muted">Ou essayez <span class="orange">'ls'</span> pour lister mes compétences.</span>
+                            </div>
+                            <div class="line"><br></div>
+                        </div>
+
+                        <div class="input-line">
+                            <span class="prompt-arrow">➜</span> <span class="prompt-path">~</span>
+                            <span id="visible-input"></span><span class="cursor-block">█</span>
+                        </div>
+                        
+                        <input type="text" id="hidden-input" autocomplete="off" spellcheck="false">
+                    </div>
+
+                    <div class="terminal-footer">
+                        <span class="footer-label">RACCOURCIS:</span>
+                        <button type="button" onclick="runCommand('ls')" class="footer-btn blue"><i class="fas fa-list"></i> ls</button>
+                        <button type="button" onclick="runCommand('cat html.md')" class="footer-btn orange"><i class="fab fa-html5"></i> HTML</button>
+                        <button type="button" onclick="runCommand('node script.js')" class="footer-btn yellow"><i class="fab fa-js"></i> JS</button>
+                        <button type="button" onclick="runCommand('python main.py')" class="footer-btn blue-dark"><i class="fab fa-python"></i> Python</button>
+                        <button type="button" onclick="runCommand('cat linux.txt')" class="footer-btn pink"><i class="fab fa-linux"></i> Linux</button>
+                        <button type="button" onclick="runCommand('active directory')" class="footer-btn blue"><i class="fab fa-windows"></i> AD</button>
+                        <span class="spacer"></span>
+                        <span class="clear-btn" onclick="runCommand('clear')">clear</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-projets" id="projets">
+            <div class="entete-projets">
+                <h1>Projets</h1>
+            </div>
+            <div class="cartes-projets">
+                <div class="carte" data-animation="haut">
+                    <div class="wrapper-img-carte">
+                        <img src="./media/proj1.jpg" alt="Projet VPN">
+                    </div>
+                    <div class="carte-overlay">
+                        <div class="info-carte">
+                            <h2>Projet 1</h2>
+                            <h3>VPN</h3>
+                            <button class="bouton-voir" onclick="ouvrirModale('vpnModal')">En savoir plus</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carte" data-animation="haut">
+                    <div class="wrapper-img-carte">
+                        <img src="./media/proj2.jpg" alt="Projet 2">
+                    </div>
+                    <div class="carte-overlay">
+                        <div class="info-carte">
+                            <h2>Projet 2</h2>
+                            <h3>...</h3>
+                            <button class="bouton-voir">En savoir plus</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carte" data-animation="haut">
+                    <div class="wrapper-img-carte">
+                        <img src="./media/proj3.jpg" alt="Projet 3">
+                    </div>
+                    <div class="carte-overlay">
+                        <div class="info-carte">
+                            <h2>Projet 3</h2>
+                            <h3>...</h3>
+                            <button class="bouton-voir">En savoir plus</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carte" data-animation="haut">
+                    <div class="wrapper-img-carte">
+                        <img src="./media/proj4.jpg" alt="Projet 4">
+                    </div>
+                    <div class="carte-overlay">
+                        <div class="info-carte">
+                            <h2>Projet 4</h2>
+                            <h3>...</h3>
+                            <button class="bouton-voir">En savoir plus</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="barre-outils-mobile">
+            <nav>
+                <a href="#" class="outil-link"><i class="fas fa-home"></i><span>Accueil</span></a>
+                <a href="#competences" class="outil-link"><i class="fas fa-cogs"></i><span>Compétences</span></a>
+                <a href="#projets" class="outil-link"><i class="fas fa-folder-open"></i><span>Projets</span></a>
+            </nav>
+        </div>
+
+        <div id="vpnModal" class="modale">
+            <div class="contenu-modale">
+                <span class="fermer-modale" onclick="fermerModale('vpnModal')">&times;</span>
+                <iframe src="./docs/Fiche_Projet_VPN_OpenVPN.pdf" type="application/pdf" width="100%" height="600px">
+                    <p>Votre navigateur ne supporte pas l'affichage des PDF.
+                        <a href="./docs/Fiche_Projet_VPN_OpenVPN.pdf">Cliquez ici pour télécharger le PDF</a>
+                    </p>
+                </iframe>
+            </div>
+        </div>
+
+        <div id="cvModal" class="modale">
+            <div class="contenu-modale" style="height: 90vh;"> 
+                <span class="fermer-modale" onclick="fermerModale('cvModal')">&times;</span>
+                <h2 style="text-align:center; margin-bottom:15px; font-family: var(--font-primary);">Mon Curriculum Vitae</h2>
+                
+                <iframe src="./docs/CV de kendi.pdf" type="application/pdf" width="100%" height="90%">
+                    <p>Votre navigateur ne supporte pas l'affichage des PDF.
+                        <a href="./docs/CV de kendi.pdf">Cliquez ici pour télécharger le CV</a>
+                    </p>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

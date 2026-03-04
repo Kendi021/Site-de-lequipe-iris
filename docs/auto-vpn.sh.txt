@@ -1,0 +1,35 @@
+#!/bin/bash
+# Script d'installation automatique OpenVPN (Wrapper pour Angristan)
+
+# 1. Définition des variables silencieuses
+export AUTO_INSTALL=y
+export APPROVE_INSTALL=y
+export APPROVE_IP=y
+export IPV6_SUPPORT=n
+export PORT_CHOICE=1      # Port 1194 UDP
+export PROTOCOL_CHOICE=1 
+export DNS=1              # DNS Système
+export COMPRESSION_ENABLED=n
+export CUSTOMIZE_ENC=n
+export CLIENT="client-admin"
+export PASS=1
+
+# 2. Téléchargement du script officiel
+curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh
+chmod +x openvpn-install.sh
+
+# 3. Exécution forcée (Simulation des entrées clavier pour valider les étapes)
+# Note: On passe les paramètres par défaut
+./openvpn-install.sh <<EOF
+1
+1194
+1
+1
+client-admin
+EOF
+
+# 4. Signalement de fin
+echo "============================================="
+echo "INSTALLATION TERMINÉE AVEC SUCCÈS"
+echo "Le fichier de connexion est : /root/client-admin.ovpn"
+echo "============================================="

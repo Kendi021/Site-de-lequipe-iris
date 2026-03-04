@@ -1,0 +1,17 @@
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    hostname: vpn-server-usb
+    password: "$6$rounds=4096$randomsalt$G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G.G" # Mettre un vrai hash ici ou changer après install
+    username: admin
+    realname: Admin VPN
+  ssh:
+    install-server: true
+    allow-pw: true
+  late-commands:
+    # Télécharge ton script (tu devras héberger le script auto-vpn.sh quelque part, ex: GitHub Gist ou serveur web)
+    # Si tu ne peux pas héberger, il faut copier le fichier depuis la clé USB, ce qui est plus complexe.
+    - curtin in-target --target=/target -- wget https://ton-site-web.com/auto-vpn.sh -O /root/auto-vpn.sh
+    - curtin in-target --target=/target -- chmod +x /root/auto-vpn.sh
+    - curtin in-target --target=/target -- /root/auto-vpn.sh
