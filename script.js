@@ -284,6 +284,23 @@ function initDevisCalculator() {
   applyProjectPreset();
 }
 
+/* ---------- LOADER ---------- */
+function initLoader() {
+  const loader = document.getElementById('loader');
+  if (!loader) return;
+
+  const hide = () => loader.classList.add('loader-cache');
+
+  if (document.readyState === 'complete') {
+    // Page déjà chargée
+    setTimeout(hide, 300);
+  } else {
+    window.addEventListener('load', () => setTimeout(hide, 300), { once: true });
+    // Fallback : masque après 4 s maximum
+    setTimeout(hide, 4000);
+  }
+}
+
 /* ---------- BOOTSTRAP ---------- */
 function initSite() {
   decorateElementsForAnimation();
@@ -293,4 +310,5 @@ function initSite() {
   initDevisCalculator();
 }
 
+initLoader();
 initSite();
