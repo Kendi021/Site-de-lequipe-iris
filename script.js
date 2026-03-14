@@ -1,10 +1,8 @@
-const container = document.querySelector('.container');
-const menuToggle = document.getElementById('fermer-menu');
-const menuLinks = document.querySelectorAll('.lien-menu');
-const animatedElements = document.querySelectorAll('[data-animation]');
-const devisForm = document.getElementById('devis-form');
-const projectRadios = document.querySelectorAll('input[name="type-projet"]');
+/* =========================================================
+   SCRIPT PRINCIPAL - SITE EQUIPE IRIS
+   ========================================================= */
 
+/* ---------- CONFIG ---------- */
 const PROJECT_PRESETS = {
   vitrine: {
     label: 'Site vitrine',
@@ -44,49 +42,49 @@ const PROJECT_PRESETS = {
   },
 };
 
-// Gère l'ouverture du menu latéral.
+const AUTO_ANIMATION_GROUPS = [
+  { selector: '.entete-section-terminal', animation: 'haut', baseDelay: 0, stepDelay: 0 },
+  { selector: '.entete-projets', animation: 'haut', baseDelay: 0, stepDelay: 0 },
+  { selector: '.membres-list .membre', animation: 'haut', baseDelay: 40, stepDelay: 70 },
+  { selector: '.cartes-projets .carte', animation: 'haut', baseDelay: 50, stepDelay: 90 },
+  { selector: '.devis-wrapper', animation: 'haut', baseDelay: 80, stepDelay: 0 },
+  { selector: '.devis-projets .projet-card', animation: 'gauche', baseDelay: 110, stepDelay: 70 },
+  { selector: '.devis-form .devis-champ', animation: 'droite', baseDelay: 130, stepDelay: 65 },
+  { selector: '.devis-checks label', animation: 'gauche', baseDelay: 170, stepDelay: 55 },
+  { selector: '.devis-kpi', animation: 'haut', baseDelay: 210, stepDelay: 70 },
+];
+
+/* ---------- REFERENCES DOM ---------- */
+const container = document.querySelector('.container');
+const menuToggle = document.getElementById('fermer-menu');
+const menuLinks = document.querySelectorAll('.lien-menu');
+const devisForm = document.getElementById('devis-form');
+const projectRadios = document.querySelectorAll('input[name="type-projet"]');
+const skillsSection = document.getElementById('competences');
+
+/* ---------- UTILITAIRES ---------- */
+function formatEuro(value) {
+  return `${Math.round(value)} EUR`;
+}
+
+function getSelectedProject() {
+  const selected = document.querySelector('input[name="type-projet"]:checked');
+  const key = selected?.value || 'vitrine';
+  // Fallback sur vitrine si aucun choix n'est trouvé.
+  return PROJECT_PRESETS[key] || PROJECT_PRESETS.vitrine;
+}
+
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+/* ---------- MENU ---------- */
 function toggleMenu() {
   container?.classList.toggle('afficher-menu');
 }
 
-// Ferme le menu après un clic sur un lien.
 function closeMenu() {
   container?.classList.remove('afficher-menu');
-}
-
-// Lance les animations quand les blocs entrent dans l'écran.
-function initScrollAnimations() {
-  if (!animatedElements.length) {
-    return;
-  }
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle('anime', entry.isIntersecting);
-        });
-      },
-      { threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
-    );
-
-    animatedElements.forEach((element) => observer.observe(element));
-    return;
-  }
-
-  animatedElements.forEach((element) => element.classList.add('anime'));
-}
-
-// Aligne les barres avec les niveaux du HTML.
-function initSkillBars() {
-  document.querySelectorAll('.competence[data-level]').forEach((skill) => {
-    const fill = skill.querySelector('.fill');
-    const level = skill.dataset.level;
-
-    if (fill && level) {
-      fill.style.width = `${level}%`;
-    }
-  });
 }
 
 function initMenuAccessibility() {
@@ -101,24 +99,112 @@ function initMenuAccessibility() {
       toggleMenu();
     }
   });
+
+  menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
 }
 
-function formatEuro(value) {
-  return `${Math.round(value)} EUR`;
+/* ---------- ANIMATIONS PAGE ---------- */
+function decorateElementsForAnimation() {
+  AUTO_ANIMATION_GROUPS.forEach((group) => {
+    const elements = document.querySelectorAll(group.selector);
+
+    elements.forEach((element, index) => {
+      if (!element.dataset.animation) {
+        element.dataset.animation = group.animation;
+      }
+
+      if (!element.dataset.animationDelay) {
+        element.dataset.animationDelay = String(group.baseDelay + (index * group.stepDelay));
+      }
+    });
+  });
 }
 
-function getSelectedProject() {
-  const selected = document.querySelector('input[name="type-projet"]:checked');
-  const key = selected?.value || 'vitrine';
-  return PROJECT_PRESETS[key] || PROJECT_PRESETS.vitrine;
+function initScrollAnimations() {
+  const animatedElements = document.querySelectorAll('[data-animation]');
+
+  if (!animatedElements.length) {
+    return;
+  }
+
+  if (prefersReducedMotion()) {
+    animatedElements.forEach((element) => element.classList.add('anime'));
+    return;
+  }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          const delay = Number(entry.target.dataset.animationDelay || 0);
+          if (delay > 0) {
+            entry.target.style.transitionDelay = `${delay}ms`;
+          }
+
+          entry.target.classList.add('anime');
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    animatedElements.forEach((element) => observer.observe(element));
+    return;
+  }
+
+  animatedElements.forEach((element) => element.classList.add('anime'));
 }
 
-// Pré-remplit les champs selon le type de projet choisi.
+function applySkillBarsWidth() {
+  document.querySelectorAll('.competence[data-level]').forEach((skill) => {
+    const fill = skill.querySelector('.fill');
+    const level = skill.dataset.level;
+
+    if (fill && level) {
+      fill.style.width = `${level}%`;
+    }
+  });
+}
+
+function initSkillBars() {
+  if (!skillsSection) {
+    applySkillBarsWidth();
+    return;
+  }
+
+  if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+    applySkillBarsWidth();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        applySkillBarsWidth();
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  observer.observe(skillsSection);
+}
+
+/* ---------- DEVIS ---------- */
 function applyProjectPreset() {
   if (!devisForm) {
     return;
   }
 
+  // Charge des valeurs par défaut selon le type de projet choisi.
   const preset = getSelectedProject();
 
   const hosting = document.getElementById('type-hebergement');
@@ -137,10 +223,10 @@ function applyProjectPreset() {
   if (ssl) ssl.checked = preset.ssl;
   if (backup) backup.checked = preset.backup;
 
+  // Recalcule immédiatement après mise à jour des champs.
   updateDevis();
 }
 
-// Calcule une estimation simple de deploiement.
 function updateDevis() {
   if (!devisForm) {
     return;
@@ -156,11 +242,14 @@ function updateDevis() {
   const backup = document.getElementById('backup')?.checked ? 15 : 0;
   const projet = getSelectedProject();
 
+  // Coûts variables mensuels basés sur l'usage.
   const coutStockage = stockage * 0.2;
   const coutTrafic = trafic * 0.08;
   const coutMaintenance = maintenance * 35;
 
+  // Total mensuel = infra + options + coefficient du type de projet.
   const coutMensuel = hosting + coutStockage + coutTrafic + coutMaintenance + nomDomaine + ssl + backup + projet.monthly;
+  // Coût d'installation = base + setup technique + complexité du projet.
   const coutInstallation = 120 + (hosting * 0.6) + (backup ? 30 : 0) + (ssl ? 25 : 0) + projet.setup;
 
   const sortieMensuelle = document.getElementById('cout-mensuel');
@@ -185,15 +274,23 @@ function initDevisCalculator() {
     return;
   }
 
+  // Recalcule à chaque changement d'un champ du formulaire.
   devisForm.addEventListener('input', updateDevis);
   devisForm.addEventListener('change', updateDevis);
+  // Applique le preset quand on change le type de projet.
   projectRadios.forEach((radio) => radio.addEventListener('change', applyProjectPreset));
+
+  // Initialisation du devis au chargement.
   applyProjectPreset();
 }
 
-menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
+/* ---------- BOOTSTRAP ---------- */
+function initSite() {
+  decorateElementsForAnimation();
+  initMenuAccessibility();
+  initScrollAnimations();
+  initSkillBars();
+  initDevisCalculator();
+}
 
-initMenuAccessibility();
-initScrollAnimations();
-initSkillBars();
-initDevisCalculator();
+initSite();

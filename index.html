@@ -18,6 +18,10 @@
 
 <body>
     <div class="container">
+        <!-- ===================================================== -->
+        <!-- 1) HERO + NAVIGATION -->
+        <!-- ===================================================== -->
+        <!-- Hero + navigation -->
         <!-- Menu mobile -->
         <div class="menu-burger" id="fermer-menu" aria-label="Ouvrir le menu" role="button" tabindex="0">
             <div class="ligne" id="ligne1"></div>
@@ -48,12 +52,17 @@
             </nav>
         </aside>
 
+        <!-- ===================================================== -->
+        <!-- 2) EQUIPE + COMPETENCES -->
+        <!-- ===================================================== -->
         <!-- Présentation de l'équipe -->
         <section class="section-equipe-competences fade-in" id="competences">
+            <!-- Titre de section -->
             <div class="entete-section-terminal fade-in-down" data-animation="haut">
                 <h1>Notre équipe & compétences</h1>
             </div>
 
+            <!-- Cartes membres + compétences -->
             <div class="membres-list fade-in-up" data-animation="haut">
                 <div class="membre fade-in-up fade-in-up-delay-0">
                     <div class="membre-info">
@@ -309,12 +318,17 @@
             </div>
         </section>
 
+        <!-- ===================================================== -->
+        <!-- 3) PROJETS -->
+        <!-- ===================================================== -->
         <!-- Cartes projets -->
         <section class="section-projets fade-in" id="projets">
-            <div class="entete-projets fade-in-down">
+            <!-- Titre section projets -->
+            <div class="entete-projets fade-in-down" data-animation="haut" data-animation-delay="40">
                 <h1>Projets de l'équipe</h1>
             </div>
 
+            <!-- Cartes projets -->
             <div class="cartes-projets">
                 <div class="carte fade-in-up fade-in-up-delay-0" data-animation="haut">
                     <div class="wrapper-img-carte">
@@ -370,12 +384,16 @@
             </div>
         </section>
 
-        <section class="section-devis fade-in" id="devis" data-animation="haut">
-            <div class="entete-projets entete-devis fade-in-down">
+        <!-- ===================================================== -->
+        <!-- 4) DEVIS DEPLOIEMENT -->
+        <!-- ===================================================== -->
+        <section class="section-devis fade-in" id="devis" data-animation="haut" data-animation-delay="50">
+            <!-- Estimateur de coût de déploiement -->
+            <div class="entete-projets entete-devis fade-in-down" data-animation="haut" data-animation-delay="90">
                 <h1>Devis de déploiement</h1>
             </div>
 
-            <div class="devis-wrapper fade-in-up">
+            <div class="devis-wrapper fade-in-up" data-animation="haut" data-animation-delay="130">
                 <p class="devis-intro"><i class="fas fa-server" aria-hidden="true"></i> Choisis d'abord ton type de projet, puis ajuste les options de déploiement.</p>
 
                 <fieldset class="devis-projets" aria-label="Type de projet">
@@ -397,6 +415,7 @@
                 </fieldset>
 
                 <form class="devis-form" id="devis-form">
+                    <!-- Paramètres techniques -->
                     <div class="devis-champ">
                         <label class="devis-label" for="type-hebergement">Type d'hébergement</label>
                         <select id="type-hebergement" name="type-hebergement">
@@ -422,6 +441,7 @@
                     </div>
 
                     <div class="devis-checks">
+                        <!-- Options supplémentaires -->
                         <label><input type="checkbox" id="nom-domaine" checked><span>Nom de domaine (+12 EUR / mois)</span></label>
                         <label><input type="checkbox" id="ssl"><span>Certificat SSL premium (+8 EUR / mois)</span></label>
                         <label><input type="checkbox" id="backup" checked><span>Sauvegarde automatique (+15 EUR / mois)</span></label>
@@ -429,6 +449,7 @@
                 </form>
 
                 <div class="devis-resultat" id="devis-resultat" aria-live="polite">
+                    <!-- Résultats calculés en direct -->
                     <div class="devis-kpis">
                         <article class="devis-kpi">
                             <p class="devis-kpi-label">Coût d'installation</p>
@@ -445,6 +466,10 @@
             </div>
         </section>
 
+        <!-- ===================================================== -->
+        <!-- 5) NAVIGATION MOBILE -->
+        <!-- ===================================================== -->
+        <!-- Navigation mobile fixe -->
         <div class="barre-outils-mobile">
             <nav>
                 <a href="#" class="outil-link"><i class="fas fa-home"></i><span>Accueil</span></a>

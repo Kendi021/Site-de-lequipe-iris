@@ -6,11 +6,28 @@
    Date: 2026
    =================================================================== */
 
+/* Repères rapides:
+    1) Base (reset + header + menu)
+    2) Sections (équipe, projets, devis)
+    3) Responsive (media queries en bas)
+*/
+
+/* ================================================================
+   1) BASE GLOBALE (reset, animations, header, menu)
+   ================================================================ */
+
 /* --- IMPORTS DE POLICES ET ICÔNES --- */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=JetBrains+Mono:wght@100;200;300;400&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
 /* Import des polices Google Fonts : Baloo Da 2, JetBrains Mono, Josefin Slab, Mulish */
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css);
 /* Import des icônes Font Awesome version 6 */
+
+:root {
+    --motion-fast: 0.2s;
+    --motion-base: 0.28s;
+    --motion-slow: 0.4s;
+    --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 
 /* --- RÉINITIALISATION CSS (RESET) --- */
 * {
@@ -40,22 +57,24 @@ html {
 /* --- SYSTÈME D'ANIMATIONS AU SCROLL --- */
 [data-animation] {
     opacity: 0;              /* État initial : invisible */
-    transition: .3s;         /* Transition douce pour l'apparition */
+    transition: opacity var(--motion-slow) var(--motion-ease),
+        transform var(--motion-slow) var(--motion-ease); /* Transition douce pour l'apparition */
+    will-change: opacity, transform;
 }
 
 [data-animation="haut"] {
     opacity: 0;
-    transform: translate3d(0px, 250px, 0px); /* Translation vers le bas */
+    transform: translate3d(0px, 72px, 0px); /* Translation vers le bas */
 }
 
 [data-animation="gauche"] {
     opacity: 0;
-    transform: translate3d(10px, 0px, 0px); /* Translation vers la droite */
+    transform: translate3d(40px, 0px, 0px); /* Translation vers la droite */
 }
 
 [data-animation="droite"] {
     opacity: 0;
-    transform: translate3d(-10px, 0px, 0px); /* Translation vers la gauche */
+    transform: translate3d(-40px, 0px, 0px); /* Translation vers la gauche */
 }
 
 [data-animation].anime {
@@ -114,7 +133,7 @@ html {
     height: 2.5rem;         /* Hauteur fixe */
     width: 2.5rem;          /* Largeur fixe */
     font-size: 2.7rem;      /* Taille de l'icône */
-    transition: color 1s;   /* Transition douce sur la couleur */
+    transition: color var(--motion-base) var(--motion-ease); /* Transition unifiée */
     pointer-events: auto;   /* Événements activés */
 }
 
@@ -160,7 +179,7 @@ html {
     width: 100%;              /* Largeur complète */
     height: .1rem;            /* Hauteur fine */
     background-color: white;  /* Couleur blanche */
-    transition: transform 1s; /* Animation de transformation */
+    transition: transform var(--motion-base) var(--motion-ease); /* Animation de transformation */
     box-shadow: 1px 2px 4px 0px rgb(0 0 0 / 72%); /* Ombre portée */
 }
 
@@ -177,7 +196,10 @@ html {
     border: none;             /* Pas de bordure */
     border-radius: 45px;      /* Bordures arrondies */
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Ombre douce */
-    transition: all 0.3s ease 0s; /* Transition sur toutes les propriétés */
+    transition: transform var(--motion-base) var(--motion-ease),
+        box-shadow var(--motion-base) var(--motion-ease),
+        background-color var(--motion-base) var(--motion-ease),
+        color var(--motion-base) var(--motion-ease); /* Transition unifiée */
     cursor: pointer;          /* Curseur pointeur */
     outline: none;            /* Supprime le outline par défaut */
 }
@@ -272,7 +294,7 @@ header::after {
     position: fixed;
     top: 0;
     right: -20rem;
-    transition: all 0.4s;
+    transition: right var(--motion-slow) var(--motion-ease);
     z-index: 120;
     backdrop-filter: blur(19px) saturate(124%);
     -webkit-backdrop-filter: blur(19px) saturate(124%);
@@ -283,6 +305,7 @@ header::after {
 
 .afficher-menu .barre-laterale {
     right: 0;
+    animation: slideInRight var(--motion-slow) var(--motion-ease);
 }
 
 .menu {
@@ -343,7 +366,7 @@ header::after {
     font-family: var(--font-tertiary);
     font-size: 2rem;
     color: rgba(13, 14, 13, 0.801);
-    transition: color 1s;
+    transition: color var(--motion-base) var(--motion-ease);
     display: inline-block;
     max-width: 12rem;
     line-height: 1.15;
@@ -355,20 +378,36 @@ header::after {
 
 .element-menu {
     margin: 1.5em;
+    opacity: 0;
+    transform: translateX(18px);
+    transition: opacity var(--motion-base) var(--motion-ease),
+        transform var(--motion-base) var(--motion-ease);
+}
+
+.afficher-menu .element-menu {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .afficher-menu .element-menu:nth-child(1) {
-    animation: moveMenu .4s;
+    transition-delay: 0.04s;
 }
 
 .afficher-menu .element-menu:nth-child(2) {
-    animation: moveMenu .6s;
+    transition-delay: 0.1s;
 }
 
 .afficher-menu .element-menu:nth-child(3) {
-    animation: moveMenu .8s;
+    transition-delay: 0.16s;
 }
 
+.afficher-menu .element-menu:nth-child(4) {
+    transition-delay: 0.22s;
+}
+
+/* ================================================================
+    2) SECTION PROJETS
+    ================================================================ */
 /* --- PROJETS --- */
 .section-projets {
     width: 100%;
@@ -474,7 +513,8 @@ header::after {
     padding: 1em 2.5em;
     display: inline-block;
     border-radius: 6em;
-    transition: all .2s;
+    transition: transform var(--motion-fast) var(--motion-ease),
+        box-shadow var(--motion-fast) var(--motion-ease);
     border: none;
     font-family: inherit;
     font-weight: 500;
@@ -503,7 +543,8 @@ header::after {
     top: 0;
     left: 0;
     z-index: -1;
-    transition: all .4s;
+    transition: transform var(--motion-slow) var(--motion-ease),
+        opacity var(--motion-slow) var(--motion-ease);
     background-color: #fff;
 }
 
@@ -524,6 +565,9 @@ header::after {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* ================================================================
+    3) SECTION DEVIS
+    ================================================================ */
 /* --- SECTION DEVIS --- */
 .section-devis {
     width: 100%;
@@ -594,7 +638,9 @@ header::after {
     border: 1px solid rgba(183, 109, 240, 0.24);
     background: rgba(255, 255, 255, 0.78);
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition: transform var(--motion-fast) var(--motion-ease),
+        box-shadow var(--motion-fast) var(--motion-ease),
+        border-color var(--motion-fast) var(--motion-ease);
 }
 
 .projet-card:hover {
@@ -656,7 +702,9 @@ header::after {
     font-family: var(--font-action);
     color: #26212d;
     background: rgba(255, 255, 255, 0.92);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    transition: border-color var(--motion-fast) var(--motion-ease),
+        box-shadow var(--motion-fast) var(--motion-ease),
+        transform var(--motion-fast) var(--motion-ease);
 }
 
 .devis-form input[type="number"]:focus,
@@ -770,7 +818,9 @@ header::after {
 .outil-link {
     border-radius: 12px;
     padding: 8px 12px;
-    transition: all 0.2s;
+    transition: transform var(--motion-fast) var(--motion-ease),
+        background-color var(--motion-fast) var(--motion-ease),
+        color var(--motion-fast) var(--motion-ease);
 }
 
 .outil-link:hover,
@@ -798,6 +848,7 @@ header::after {
         padding: 0.55rem 0.35rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
         z-index: 9999;
         box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+        animation: fadeInUp var(--motion-slow) var(--motion-ease);
     }
 
     .barre-outils-mobile nav {
@@ -870,6 +921,9 @@ header::after {
     font-family: var(--font-secondary);
 }
 
+/* ================================================================
+    4) SECTION EQUIPE & COMPETENCES
+    ================================================================ */
 /* --- SECTION ÉQUIPE & COMPÉTENCES --- */
 .section-equipe-competences {
     background: linear-gradient(180deg, #161417 0%, #211d24 12%, #3d3743 22%, #bdb5c4 38%, #ece7f0 54%, #ddd8df 100%); /* Dégradé raccordé avec le header */
@@ -925,7 +979,8 @@ header::after {
     border-radius: 10px;      /* Bordures arrondies */
     padding: 1.5rem;          /* Padding interne */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre douce */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transitions fluides */
+    transition: transform var(--motion-base) var(--motion-ease),
+        box-shadow var(--motion-base) var(--motion-ease); /* Transitions fluides */
     cursor: pointer;          /* Curseur pointeur pour indiquer interactivité */
     position: relative;
 }
@@ -979,7 +1034,9 @@ header::after {
     opacity: 0;
     transform: translateY(10px);
     pointer-events: none;
-    transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    transition: opacity var(--motion-fast) var(--motion-ease),
+        transform var(--motion-fast) var(--motion-ease),
+        box-shadow var(--motion-fast) var(--motion-ease);
 }
 
 .membre:hover .bouton-membre,
@@ -1004,7 +1061,7 @@ header::after {
     gap: 1rem;                /* Espacement entre éléments */
     padding: 0.5rem;          /* Padding interne */
     border-radius: 5px;       /* Bordures légèrement arrondies */
-    transition: background-color 0.3s ease; /* Transition douce */
+    transition: background-color var(--motion-base) var(--motion-ease); /* Transition douce */
     position: relative;       /* Position relative pour tooltips */
 }
 
@@ -1033,7 +1090,7 @@ header::after {
     width: 0%;                /* Largeur initiale à 0% pour animation (sera mise à jour par JS) */
     background-color: #b76df0; /* Couleur violette unie */
     border-radius: 10px;      /* Bordures arrondies */
-    transition: width 0.8s ease; /* Animation de largeur fluide */
+    transition: width 0.8s var(--motion-ease); /* Animation de largeur fluide */
     position: relative;       /* Position relative pour effets */
 }
 
@@ -1077,7 +1134,8 @@ header::after {
     white-space: nowrap;      /* Pas de retour à la ligne */
     opacity: 0;               /* Invisible par défaut */
     visibility: hidden;       /* Masqué par défaut */
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transitions fluides */
+    transition: opacity var(--motion-base) var(--motion-ease),
+        visibility var(--motion-base) var(--motion-ease); /* Transitions fluides */
     pointer-events: none;     /* Ne capture pas les événements souris */
     z-index: 10;              /* Au-dessus des autres éléments */
 }
@@ -1092,7 +1150,8 @@ header::after {
     border-top-color: #333;   /* Flèche vers le bas */
     opacity: 0;               /* Invisible par défaut */
     visibility: hidden;       /* Masqué par défaut */
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transitions fluides */
+    transition: opacity var(--motion-base) var(--motion-ease),
+        visibility var(--motion-base) var(--motion-ease); /* Transitions fluides */
     pointer-events: none;     /* Ne capture pas les événements souris */
     z-index: 10;              /* Au-dessus des autres éléments */
 }
@@ -1103,6 +1162,9 @@ header::after {
     visibility: visible;      /* Affiché au survol */
 }
 
+/* ================================================================
+    5) RESPONSIVE
+    ================================================================ */
 /* Responsive pour tablette */
 @media (max-width: 1024px) {
     .menu-burger {
