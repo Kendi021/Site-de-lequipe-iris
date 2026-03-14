@@ -84,6 +84,40 @@ window.onclick = function(event) {
 };
 
 /* ==========================================================================
+   INITIALISATION DES BARRES DE COMPÉTENCES
+   ========================================================================== */
+// Initialise la largeur des barres de compétences en fonction du data-level
+function initialiserBarresCompetences() {
+  // Sélectionne tous les éléments avec la classe 'competence' et l'attribut data-level
+  const competences = document.querySelectorAll('.competence[data-level]');
+  
+  competences.forEach(function(competence) {
+    const level = competence.getAttribute('data-level');
+    
+    // Cherche le .bar qui est DANS le .competence
+    const bar = competence.querySelector('.bar');
+    if (bar) {
+      const fill = bar.querySelector('.fill');
+      if (fill) {
+        // Applique directement le width sur fill
+        fill.style.width = level + '%';
+        fill.style.transition = 'width 0.8s ease';
+      }
+    }
+  });
+}
+
+// Lance l'initialisation au chargement du DOM
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initialiserBarresCompetences);
+} else {
+  initialiserBarresCompetences();
+}
+
+// Relancer après un peu de temps pour s'assurer que tout est chargé
+window.addEventListener('load', initialiserBarresCompetences);
+
+/* ==========================================================================
    CODE OBSOLÈTE - LOGIQUE DU TERMINAL INTERACTIF (REMPLACÉ)
    ========================================================================== */
 /* Tout le code suivant était utilisé pour la simulation de terminal interactive */
