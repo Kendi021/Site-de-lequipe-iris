@@ -1,161 +1,382 @@
 <!DOCTYPE html>
+<!-- Déclaration du type de document HTML5 -->
 <html lang="fr">
+<!-- Langue du document : français -->
 
 <head>
+    <!-- Métadonnées et liens vers les ressources externes -->
     <meta charset="UTF-8">
+    <!-- Encodage des caractères : UTF-8 pour supporter les accents français -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mode de compatibilité pour Internet Explorer -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Viewport pour la responsivité mobile -->
     <meta name="description" content="Site de l'équipe IRIS, BTS SIO SISR.">
+    <!-- Description du site pour les moteurs de recherche -->
+
+    <!-- Icônes du site (favicon) -->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
+    <!-- Icône pour appareils Apple -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <!-- Icône standard 32x32 -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <!-- Icône standard 16x16 -->
     <link rel="manifest" href="assets/images/site.webmanifest">
+    <!-- Manifest pour PWA -->
+
+    <!-- Feuilles de style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Styles principaux -->
     <link rel="stylesheet" href="./assets/css/proprieties.css">
+    <!-- Propriétés CSS supplémentaires -->
     <link rel="stylesheet" href="./assets/css/KeyFrames.css">
+    <!-- Animations CSS -->
+
     <title>Site ?? de l'équipe IRIS - BTS SIO </title>
+    <!-- Titre de la page -->
 </head>
 
 <body>
+    <!-- Corps principal du document -->
     <div class="container">
+        <!-- Conteneur principal qui englobe tout le contenu -->
+
+        <!-- Menu burger pour mobile -->
         <div class="menu-burger" id="fermer-menu">
+            <!-- Bouton hamburger pour ouvrir/fermer le menu sur mobile -->
             <div class="ligne" id="ligne1"></div>
+            <!-- Première ligne du hamburger -->
             <div class="ligne" id="ligne2"></div>
+            <!-- Deuxième ligne du hamburger -->
             <div class="ligne" id="ligne3"></div>
+            <!-- Troisième ligne du hamburger -->
             <span>Fermer</span>
+            <!-- Texte du bouton -->
         </div>
 
+        <!-- En-tête du site -->
         <header>
+            <!-- Section d'en-tête avec image de fond et titre -->
             <div class="conteneur-image">
+                <!-- Conteneur pour l'image de fond -->
                 <img src="./assets/images/backgroundimg.jpg" alt="Image de fond de l'équipe">
+                <!-- Image de fond représentant l'équipe IRIS -->
             </div>
             <div class="banniere">
+                <!-- Bannière avec titre et bouton -->
                 <h1 class="style-titre">Site de l'équipe IRIS</h1>
+                <!-- Titre principal du site -->
                 <p>BTS SIO </p>
-                <a class="bouton-personnalise" id="bouton-banniere" href="#" onclick="ouvrirModale('cvModal'); return false;">Découvrir l'équipe</a>
+                <!-- Sous-titre indiquant la formation -->
+                <button class="bouton-personnalise modale-inchallah" data-action="equipe">Découvrir l'équipe</button>
+                <!-- Bouton unifié pour découvrir l'équipe -->
             </div>
         </header>
 
+        <!-- Barre latérale de navigation -->
         <aside class="barre-laterale">
+            <!-- Section latérale avec menu de navigation -->
             <nav>
+                <!-- Navigation principale -->
                 <ul class="menu">
+                    <!-- Liste des éléments du menu -->
                     <li class="element-menu"><a href="#" class="lien-menu">Accueil</a></li>
+                    <!-- Lien vers la section accueil -->
                     <li class="element-menu"><a href="#competences" class="lien-menu">Compétences</a></li>
+                    <!-- Lien vers la section compétences -->
                     <li class="element-menu"><a href="#projets" class="lien-menu">Projets</a></li>
+                    <!-- Lien vers la section projets -->
                 </ul>
             </nav>
             <div class="reseaux-sociaux">
+                <!-- Liens vers les réseaux sociaux -->
                 <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <!-- Lien GitHub (placeholder) -->
                 <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <!-- Lien LinkedIn (placeholder) -->
             </div>
         </aside>
 
-        <!-- nouvelle section pour présenter les membres de l'équipe -->
-        <section class="section-equipe" id="membres">
+        <!-- Section principale : Équipe et compétences -->
+        <section class="section-equipe-competences" id="competences">
+            <!-- Section fusionnée pour présenter l'équipe et leurs compétences -->
+            <!-- ID "competences" pour l'ancre de navigation -->
             <div class="entete-section-terminal" data-animation="haut">
-                <h1>Notre équipe</h1>
+                <!-- En-tête de section avec animation au scroll -->
+                <h1>Notre équipe & compétences</h1>
+                <!-- Titre de la section -->
             </div>
             <div class="membres-list" data-animation="haut">
+                <!-- Grille responsive des membres de l'équipe -->
+                <!-- Chaque membre a ses infos et compétences cachées par défaut -->
+
+                <!-- Premier membre : CADET Kendi -->
                 <div class="membre">
-                    <h3>CADET Kendi</h3>
-                    <p>Rôle / SISR</p>
+                    <!-- Carte d'un membre - au survol, affiche les compétences -->
+                    <div class="membre-info">
+                        <!-- Informations de base du membre -->
+                        <h3>CADET Kendi</h3>
+                        <!-- Nom du membre -->
+                        <p>Rôle / SISR</p>
+                        <!-- Rôle et spécialité -->
+                    </div>
+                    <div class="competence-bar">
+                        <!-- Conteneur des barres de compétences (caché par défaut) -->
+
+                        <!-- Compétence HTML5 -->
+                        <div class="competence" data-skill="HTML5" data-level="70">
+                            <!-- Élément compétence avec données pour tooltip et animation -->
+                            <span class="skill-name">HTML5</span>
+                            <!-- Nom de la compétence -->
+                            <div class="bar">
+                                <!-- Barre de progression -->
+                                <div class="fill"></div>
+                                <!-- Partie remplie qui s'anime -->
+                            </div>
+                            <span class="skill-level">70%</span>
+                            <!-- Niveau affiché -->
+                        </div>
+
+                        <!-- Compétence CSS3 -->
+                        <div class="competence" data-skill="CSS3" data-level="75">
+                            <span class="skill-name">CSS3</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">75%</span>
+                        </div>
+
+                        <!-- Compétence JavaScript -->
+                        <div class="competence" data-skill="JavaScript" data-level="45">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">45%</span>
+                        </div>
+
+                        <!-- Compétence Python -->
+                        <div class="competence" data-skill="Python" data-level="50">
+                            <span class="skill-name">Python</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">50%</span>
+                        </div>
+
+                        <!-- Compétence Linux -->
+                        <div class="competence" data-skill="Linux" data-level="80">
+                            <span class="skill-name">Linux</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">80%</span>
+                        </div>
+
+                        <!-- Compétence Active Directory -->
+                        <div class="competence" data-skill="Active Directory" data-level="60">
+                            <span class="skill-name">Active Directory</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">60%</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Deuxième membre : Membre 2 -->
                 <div class="membre">
-                    <h3>Prénom Nom</h3>
-                    <p>Rôle / Spécialité</p>
+                    <div class="membre-info">
+                        <h3>Membre 2</h3>
+                        <p>Rôle / Spécialité</p>
+                    </div>
+                    <div class="competence-bar">
+                        <div class="competence" data-skill="HTML5" data-level="65">
+                            <span class="skill-name">HTML5</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">65%</span>
+                        </div>
+                        <div class="competence" data-skill="CSS3" data-level="70">
+                            <span class="skill-name">CSS3</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">70%</span>
+                        </div>
+                        <div class="competence" data-skill="JavaScript" data-level="50">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">50%</span>
+                        </div>
+                        <div class="competence" data-skill="Python" data-level="55">
+                            <span class="skill-name">Python</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">55%</span>
+                        </div>
+                        <div class="competence" data-skill="Linux" data-level="75">
+                            <span class="skill-name">Linux</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">75%</span>
+                        </div>
+                        <div class="competence" data-skill="Active Directory" data-level="65">
+                            <span class="skill-name">Active Directory</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">65%</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Troisième membre : Membre 3 -->
                 <div class="membre">
-                    <h3>Prénom Nom</h3>
-                    <p>Rôle / Spécialité</p>
+                    <div class="membre-info">
+                        <h3>Membre 3</h3>
+                        <p>Rôle / Spécialité</p>
+                    </div>
+                    <div class="competence-bar">
+                        <div class="competence" data-skill="HTML5" data-level="60">
+                            <span class="skill-name">HTML5</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">60%</span>
+                        </div>
+                        <div class="competence" data-skill="CSS3" data-level="65">
+                            <span class="skill-name">CSS3</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">65%</span>
+                        </div>
+                        <div class="competence" data-skill="JavaScript" data-level="40">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">40%</span>
+                        </div>
+                        <div class="competence" data-skill="Python" data-level="45">
+                            <span class="skill-name">Python</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">45%</span>
+                        </div>
+                        <div class="competence" data-skill="Linux" data-level="70">
+                            <span class="skill-name">Linux</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">70%</span>
+                        </div>
+                        <div class="competence" data-skill="Active Directory" data-level="55">
+                            <span class="skill-name">Active Directory</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">55%</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Quatrième membre : Membre 4 -->
                 <div class="membre">
-                    <h3>Prénom Nom</h3>
-                    <p>Rôle / Spécialité</p>
+                    <div class="membre-info">
+                        <h3>Membre 4</h3>
+                        <p>Rôle / Spécialité</p>
+                    </div>
+                    <div class="competence-bar">
+                        <div class="competence" data-skill="HTML5" data-level="55">
+                            <span class="skill-name">HTML5</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">55%</span>
+                        </div>
+                        <div class="competence" data-skill="CSS3" data-level="60">
+                            <span class="skill-name">CSS3</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">60%</span>
+                        </div>
+                        <div class="competence" data-skill="JavaScript" data-level="35">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">35%</span>
+                        </div>
+                        <div class="competence" data-skill="Python" data-level="40">
+                            <span class="skill-name">Python</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">40%</span>
+                        </div>
+                        <div class="competence" data-skill="Linux" data-level="65">
+                            <span class="skill-name">Linux</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">65%</span>
+                        </div>
+                        <div class="competence" data-skill="Active Directory" data-level="50">
+                            <span class="skill-name">Active Directory</span>
+                            <div class="bar">
+                                <div class="fill"></div>
+                            </div>
+                            <span class="skill-level">50%</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- fiche de chaque membre (photos retirées selon la demande) -->
             </div>
         </section>
 
-        <section class="section-competences" id="competences">
-            <div class="entete-section-terminal" data-animation="haut">
-                <h1>Nos compétences</h1>
-            </div>
-
-            <div class="terminal-container">
-                <div class="terminal-sidebar" data-animation="haut">
-                    <h3><i class="fas fa-terminal"></i> Menu</h3>
-                    <ul class="command-list">
-                        <li onclick="runCommand('ls')"><i class="fas fa-list"></i> Lister (ls)</li>
-                        <li onclick="runCommand('cat html.md')"><i class="fab fa-html5"></i> HTML5</li>
-                        <li onclick="runCommand('node script.js')"><i class="fab fa-js"></i> JavaScript</li>
-                        <li onclick="runCommand('python main.py')"><i class="fab fa-python"></i> Python</li>
-                        <li onclick="runCommand('cat linux.txt')"><i class="fab fa-linux"></i> Linux</li>
-                        <li onclick="runCommand('active directory')"><i class="fab fa-windows"></i> Active Directory</li>
-                        <li onclick="runCommand('clear')"><i class="fas fa-eraser"></i> Effacer</li>
-                    </ul>
-                </div>
-
-                <div class="terminal-window" onclick="focusTerminal()" data-animation="haut">
-                    <div class="terminal-bar">
-                        <div class="buttons">
-                            <div class="circle red"></div>
-                            <div class="circle yellow"></div>
-                            <div class="circle green"></div>
-                        </div>
-                        <div class="title"><i class="fas fa-home"></i> guest@iris-site: ~/skills</div>
-                    </div>
-
-                    <div class="terminal-screen">
-                        <div id="terminal-output">
-                            <div class="line">
-                                <span class="text-muted">Tapez <span class="cyan">'help'</span> pour voir la liste des commandes disponibles.</span>
-                            </div>
-                            <div class="line">
-                                <span class="text-muted">Ou essayez <span class="orange">'ls'</span> pour lister nos compétences.</span>
-                            </div>
-                            <div class="line"><br></div>
-                        </div>
-
-                        <div class="input-line">
-                            <span class="prompt-arrow">➜</span> <span class="prompt-path">~</span>
-                            <span id="visible-input"></span><span class="cursor-block">█</span>
-                        </div>
-                        
-                        <input type="text" id="hidden-input" autocomplete="off" spellcheck="false">
-                    </div>
-
-                    <div class="terminal-footer">
-                        <span class="footer-label">RACCOURCIS:</span>
-                        <button type="button" onclick="runCommand('ls')" class="footer-btn blue"><i class="fas fa-list"></i> ls</button>
-                        <button type="button" onclick="runCommand('cat html.md')" class="footer-btn orange"><i class="fab fa-html5"></i> HTML</button>
-                        <button type="button" onclick="runCommand('node script.js')" class="footer-btn yellow"><i class="fab fa-js"></i> JS</button>
-                        <button type="button" onclick="runCommand('python main.py')" class="footer-btn blue-dark"><i class="fab fa-python"></i> Python</button>
-                        <button type="button" onclick="runCommand('cat linux.txt')" class="footer-btn pink"><i class="fab fa-linux"></i> Linux</button>
-                        <button type="button" onclick="runCommand('active directory')" class="footer-btn blue"><i class="fab fa-windows"></i> AD</button>
-                        <span class="spacer"></span>
-                        <span class="clear-btn" onclick="runCommand('clear')">clear</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- Section Projets -->
         <section class="section-projets" id="projets">
+            <!-- Section présentant les projets de l'équipe IRIS -->
+            <!-- ID "projets" pour l'ancre de navigation -->
             <div class="entete-projets">
+                <!-- En-tête de la section projets -->
                 <h1>Projets de l'équipe</h1>
+                <!-- Titre de la section -->
             </div>
             <div class="cartes-projets">
+                <!-- Grille des cartes de projets -->
+
+                <!-- Carte projet 1 : VPN -->
                 <div class="carte" data-animation="haut">
+                    <!-- Carte de projet avec animation au scroll -->
                     <div class="wrapper-img-carte">
+                        <!-- Conteneur pour l'image du projet -->
                         <img src="./media/proj1.jpg" alt="Projet VPN">
+                        <!-- Image illustrative du projet VPN -->
                     </div>
                     <div class="carte-overlay">
+                        <!-- Overlay qui apparaît au survol -->
                         <div class="info-carte">
+                            <!-- Informations du projet -->
                             <h2>Projet 1</h2>
+                            <!-- Titre du projet -->
                             <h3>VPN</h3>
-                            <button class="bouton-voir" onclick="ouvrirModale('vpnModal')">En savoir plus</button>
+                            <!-- Type/technologie du projet -->
+                            <button class="bouton-voir modale-inchallah" data-action="vpn">En savoir plus</button>
+                            <!-- Bouton unifié pour en savoir plus sur le projet VPN -->
                         </div>
                     </div>
                 </div>
+
+                <!-- Carte projet 2 : Projet générique -->
                 <div class="carte" data-animation="haut">
                     <div class="wrapper-img-carte">
                         <img src="./media/proj2.jpg" alt="Projet 2">
@@ -164,10 +385,14 @@
                         <div class="info-carte">
                             <h2>Projet 2</h2>
                             <h3>...</h3>
+                            <!-- Placeholder pour le type de projet -->
                             <button class="bouton-voir">En savoir plus</button>
+                            <!-- Bouton sans fonction pour l'instant -->
                         </div>
                     </div>
                 </div>
+
+                <!-- Carte projet 3 : Projet générique -->
                 <div class="carte" data-animation="haut">
                     <div class="wrapper-img-carte">
                         <img src="./media/proj3.jpg" alt="Projet 3">
@@ -180,6 +405,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Carte projet 4 : Projet générique -->
                 <div class="carte" data-animation="haut">
                     <div class="wrapper-img-carte">
                         <img src="./media/proj4.jpg" alt="Projet 4">
@@ -204,31 +431,12 @@
             </nav>
         </div>
 
-        <div id="vpnModal" class="modale">
-            <div class="contenu-modale">
-                <span class="fermer-modale" onclick="fermerModale('vpnModal')">&times;</span>
-                <iframe src="./docs/Fiche_Projet_VPN_OpenVPN.pdf" type="application/pdf" width="100%" height="600px">
-                    <p>Votre navigateur ne supporte pas l'affichage des PDF.
-                        <a href="./docs/Fiche_Projet_VPN_OpenVPN.pdf">Cliquez ici pour télécharger le PDF</a>
-                    </p>
-                </iframe>
-            </div>
-        </div>
-
-        <div id="cvModal" class="modale">
-            <div class="contenu-modale" style="height: 90vh;"> 
-                <span class="fermer-modale" onclick="fermerModale('cvModal')">&times;</span>
-                <h2 style="text-align:center; margin-bottom:15px; font-family: var(--font-primary);">Présentation de l'équipe</h2>
-                
-                <iframe src="./docs/CV de kendi.pdf" type="application/pdf" width="100%" height="90%">
-                    <p>Votre navigateur ne supporte pas l'affichage des PDF.
-                        <a href="./docs/CV de kendi.pdf">Cliquez ici pour télécharger le CV</a>
-                    </p>
-                </iframe>
-            </div>
-        </div>
+        <!-- Les modales ont été supprimées - remplacées par des alertes informatives -->
+        <!-- TODO: Implémenter Intersection Observer pour les animations futures -->
     </div>
 
+    <!-- Inclusion du fichier JavaScript principal -->
     <script src="./script.js"></script>
+    <!-- Charge le script contenant toutes les fonctionnalités interactives -->
 </body>
 </html>

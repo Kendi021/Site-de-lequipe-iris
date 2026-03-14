@@ -1,137 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=JetBrains+Mono:wght@100;200;300;400&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css);
+/* ===================================================================
+   FEUILLE DE STYLE PRINCIPALE - SITE ÉQUIPE IRIS
+   ===================================================================
+   Description: Styles CSS pour le site web de l'équipe IRIS (BTS SIO)
+   Auteur: Équipe IRIS
+   Date: 2026
+   =================================================================== */
 
+/* --- IMPORTS DE POLICES ET ICÔNES --- */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&family=JetBrains+Mono:wght@100;200;300;400&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+/* Import des polices Google Fonts : Baloo Da 2, JetBrains Mono, Josefin Slab, Mulish */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css);
+/* Import des icônes Font Awesome version 6 */
+
+/* --- RÉINITIALISATION CSS (RESET) --- */
 * {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    box-sizing: border-box;
+    margin: 0;          /* Supprime toutes les marges par défaut */
+    padding: 0;         /* Supprime tous les paddings par défaut */
+    list-style: none;   /* Supprime les puces des listes */
+    text-decoration: none; /* Supprime les soulignements des liens */
+    box-sizing: border-box; /* Le padding et border sont inclus dans la largeur/hauteur */
 }
 
+/* --- STYLES DE BASE --- */
 body {
-    background-color: #b76df0;
-    overflow-x: hidden;
-    padding-bottom: 48px;
+    background-color: #e8d5f7; /* Violet très clair et léger */
+    overflow-x: hidden;        /* Empêche le scroll horizontal */
+    padding-bottom: 48px;     /* Espace en bas pour la barre mobile */
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Défilement fluide lors de la navigation par ancre */
 }
 
-/* --- CONTENEUR PRINCIPAL & FADE IN --- */
+/* --- CONTENEUR PRINCIPAL --- */
 .container {
-    animation: opacity 1.5s ease-out;
+    animation: opacity 1.5s ease-out; /* Animation d'opacité au chargement */
 }
 
-/* --- ANIMATIONS --- */
+/* --- SYSTÈME D'ANIMATIONS AU SCROLL --- */
 [data-animation] {
-    opacity: 0;
-    transition: .3s;
+    opacity: 0;              /* État initial : invisible */
+    transition: .3s;         /* Transition douce pour l'apparition */
 }
 
 [data-animation="haut"] {
     opacity: 0;
-    transform: translate3d(0px, 250px, 0px)
+    transform: translate3d(0px, 250px, 0px); /* Translation vers le bas */
 }
 
 [data-animation="gauche"] {
     opacity: 0;
-    transform: translate3d(10px, 0px, 0px)
+    transform: translate3d(10px, 0px, 0px); /* Translation vers la droite */
 }
 
 [data-animation="droite"] {
     opacity: 0;
-    transform: translate3d(-10px, 0px, 0px)
+    transform: translate3d(-10px, 0px, 0px); /* Translation vers la gauche */
 }
 
 [data-animation].anime {
-    opacity: 1;
-    transform: translate3d(0px, 0px, 0px)
+    opacity: 1; /* État final : visible */
+    transform: translate3d(0px, 0px, 0px); /* Position normale */
 }
 
-/* --- RÉSEAUX SOCIAUX --- */
+/* --- RÉSEAUX SOCIAUX (BARRE LATÉRALE) --- */
 .reseaux-sociaux {
-    position: absolute;
-    bottom: 4rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+    position: absolute;      /* Position absolue par rapport au conteneur parent */
+    bottom: 4rem;           /* Positionnée à 4rem du bas */
+    width: 100%;            /* Largeur complète */
+    display: flex;          /* Flexbox pour alignement horizontal */
+    justify-content: space-evenly; /* Espacement égal entre les icônes */
 }
 
 .reseaux-sociaux a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    pointer-events: auto;
+    display: flex;          /* Flexbox pour centrer l'icône */
+    align-items: center;    /* Centrage vertical */
+    justify-content: center; /* Centrage horizontal */
+    cursor: pointer;        /* Curseur pointeur */
+    pointer-events: auto;   /* Événements de souris activés */
 }
 
 .reseaux-sociaux i {
-    background-color: transparent;
-    color: black;
-    height: 2.5rem;
-    width: 2.5rem;
-    font-size: 2.7rem;
-    transition: color 1s;
-    pointer-events: auto;
+    background-color: transparent; /* Fond transparent */
+    color: black;           /* Couleur noire par défaut */
+    height: 2.5rem;         /* Hauteur fixe */
+    width: 2.5rem;          /* Largeur fixe */
+    font-size: 2.7rem;      /* Taille de l'icône */
+    transition: color 1s;   /* Transition douce sur la couleur */
+    pointer-events: auto;   /* Événements activés */
 }
 
 .reseaux-sociaux i:hover {
-    color: rgb(187, 3, 3);
+    color: rgb(187, 3, 3); /* Couleur rouge au survol */
 }
 
-/* --- TITRES --- */
+/* --- STYLES DES TITRES --- */
 .entete-section h1,
 .entete-projets h1 {
-    font-family: var(--font-tertiary);
-    text-transform: uppercase;
-    padding: 1rem;
-    margin: 1rem;
-    font-size: 30px;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.493);
-    text-align: center;
+    font-family: var(--font-tertiary); /* Police tertiaire (définie dans proprieties.css) */
+    text-transform: uppercase;         /* Texte en majuscules */
+    padding: 1rem;                    /* Padding interne */
+    margin: 1rem;                     /* Marge externe */
+    font-size: 30px;                  /* Taille de police */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.493); /* Ligne sous le titre */
+    text-align: center;               /* Centrage du texte */
 }
 
-/* --- MENU BURGER --- */
+/* --- MENU BURGER (MOBILE) --- */
 .menu-burger {
-    background-color: rgba(255, 0, 0, 0);
-    width: 2rem;
-    height: 2rem;
-    position: fixed;
-    z-index: 100;
-    right: 2rem;
-    top: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    cursor: pointer;
+    /* background-color: rgba(255, 0, 0, 0); */ /* Fond transparent supprimé - inutile */
+    width: 2rem;              /* Largeur fixe */
+    height: 2rem;             /* Hauteur fixe */
+    position: fixed;          /* Position fixe sur l'écran */
+    z-index: 100;             /* Au-dessus des autres éléments */
+    right: 2rem;              /* Position à droite */
+    top: 2rem;                /* Position en haut */
+    display: flex;            /* Flexbox pour les lignes */
+    flex-direction: column;   /* Lignes verticales */
+    justify-content: space-evenly; /* Espacement égal */
+    cursor: pointer;          /* Curseur pointeur */
 }
 
 .ligne {
-    width: 100%;
-    height: .1rem;
-    background-color: white;
-    transition: transform 1s;
-    box-shadow: 1px 2px 4px 0px rgb(0 0 0 / 72%);
+    width: 100%;              /* Largeur complète */
+    height: .1rem;            /* Hauteur fine */
+    background-color: white;  /* Couleur blanche */
+    transition: transform 1s; /* Animation de transformation */
+    box-shadow: 1px 2px 4px 0px rgb(0 0 0 / 72%); /* Ombre portée */
 }
 
-/* --- BOUTONS --- */
+/* --- STYLES DES BOUTONS --- */
 .bouton-personnalise {
-    padding: 1.3em 3em;
-    font-family: var(--font-tertiary);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #fff;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
+    padding: 1.3em 3em;       /* Padding vertical et horizontal */
+    font-family: var(--font-tertiary); /* Police tertiaire */
+    font-size: 12px;          /* Taille de police */
+    text-transform: uppercase; /* Majuscules */
+    letter-spacing: 2.5px;    /* Espacement des lettres */
+    font-weight: 500;         /* Graisse moyenne */
+    color: #000;              /* Couleur noire */
+    background-color: #fff;   /* Fond blanc */
+    border: none;             /* Pas de bordure */
+    border-radius: 45px;      /* Bordures arrondies */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    transition: all 0.3s ease 0s; /* Transition sur toutes les propriétés */
+    cursor: pointer;          /* Curseur pointeur */
+    outline: none;            /* Supprime le outline par défaut */
 }
 
 .bouton-personnalise:hover {
@@ -349,141 +362,141 @@ header {
 
 /* --- PROJETS --- */
 .section-projets {
-    width: 100%;
-    margin-bottom: 3rem;
-    box-shadow: 1px 12px 71px -13px rgba(0, 0, 0, 0.55);
+    width: 100%;              /* Largeur complète */
+    margin-bottom: 3rem;      /* Marge inférieure */
+    box-shadow: 1px 12px 71px -13px rgba(0, 0, 0, 0.55); /* Ombre portée */
 }
 
 .entete-projets {
-    display: flex;
-    justify-content: center;
-    background-color: #fafafa;
-    color: rgb(37, 37, 37);
+    display: flex;            /* Flexbox pour centrage */
+    justify-content: center;  /* Centrage horizontal */
+    background-color: #fafafa; /* Fond gris très clair */
+    color: rgb(37, 37, 37);  /* Couleur de texte sombre */
 }
 
 .cartes-projets {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    padding-bottom: 8rem;
-    padding-top: 3rem;
-    background-color: #ededf2;
-    background-image: linear-gradient(180deg, #fafafa 0%, #dadbdb 100%);
+    display: flex;            /* Flexbox pour layout */
+    justify-content: space-evenly; /* Espacement égal entre cartes */
+    flex-wrap: wrap;          /* Retour à la ligne si nécessaire */
+    padding-bottom: 8rem;     /* Padding inférieur important */
+    padding-top: 3rem;        /* Padding supérieur */
+    background-color: #ededf2; /* Fond gris clair */
+    background-image: linear-gradient(180deg, #fafafa 0%, #dadbdb 100%); /* Dégradé subtil */
 }
 
 .carte {
-    width: 20rem;
-    height: 30rem;
-    margin: 1rem;
-    border: 1px transparent;
-    border-radius: 30px;
-    box-shadow: 3px 0px 50px -3px rgba(0, 0, 0, 0.41);
+    width: 20rem;             /* Largeur fixe */
+    height: 30rem;            /* Hauteur fixe */
+    margin: 1rem;             /* Marge autour */
+    border: 1px transparent;  /* Bordure transparente */
+    border-radius: 30px;      /* Bordures très arrondies */
+    box-shadow: 3px 0px 50px -3px rgba(0, 0, 0, 0.41); /* Ombre douce */
 }
 
 .wrapper-img-carte {
-    width: 100%;
-    height: 100%;
-    border: inherit;
-    border-radius: inherit;
+    width: 100%;              /* Largeur complète */
+    height: 100%;             /* Hauteur complète */
+    border: inherit;          /* Hérite de la bordure */
+    border-radius: inherit;   /* Hérite du border-radius */
 }
 
 .wrapper-img-carte img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    border: inherit;
-    border-radius: inherit;
+    object-fit: cover;        /* Couvre l'espace sans déformation */
+    width: 100%;              /* Largeur complète */
+    height: 100%;             /* Hauteur complète */
+    border: inherit;          /* Hérite de la bordure */
+    border-radius: inherit;   /* Hérite du border-radius */
 }
 
 .carte-overlay {
-    width: 20rem;
-    height: 30rem;
-    position: relative;
-    bottom: 30rem;
-    border: inherit;
-    border-radius: inherit;
-    opacity: 0;
+    width: 20rem;             /* Même largeur que la carte */
+    height: 30rem;            /* Même hauteur que la carte */
+    position: relative;       /* Position relative */
+    bottom: 30rem;            /* Positionnée au-dessus de l'image */
+    border: inherit;          /* Hérite de la bordure */
+    border-radius: inherit;   /* Hérite du border-radius */
+    opacity: 0;               /* Invisible par défaut */
 }
 
 .info-carte {
-    display: flex;
-    height: 15rem;
-    width: 15rem;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    border-radius: inherit;
-    backdrop-filter: blur(19px) saturate(124%);
-    -webkit-backdrop-filter: blur(19px) saturate(124%);
-    background-color: rgba(255, 255, 255, 0.47);
-    padding: 1rem;
-    box-shadow: 3px 0px 37px 6px rgba(0, 0, 0, 0.55);
-    position: absolute;
-    bottom: 6rem;
-    left: 1.6rem;
-    font-family: var(--font-tertiary);
-    color: rgb(46, 46, 46);
-    opacity: 1;
+    display: flex;            /* Flexbox pour centrage */
+    height: 15rem;            /* Hauteur fixe */
+    width: 15rem;             /* Largeur fixe */
+    flex-direction: column;   /* Direction verticale */
+    align-items: center;      /* Centrage horizontal */
+    text-align: center;       /* Centrage du texte */
+    justify-content: center;  /* Centrage vertical */
+    border-radius: inherit;   /* Hérite du border-radius */
+    backdrop-filter: blur(19px) saturate(124%); /* Effet de flou arrière */
+    -webkit-backdrop-filter: blur(19px) saturate(124%); /* Support Webkit */
+    background-color: rgba(255, 255, 255, 0.47); /* Fond semi-transparent */
+    padding: 1rem;            /* Padding interne */
+    box-shadow: 3px 0px 37px 6px rgba(0, 0, 0, 0.55); /* Ombre portée */
+    position: absolute;       /* Position absolue */
+    bottom: 6rem;             /* Position depuis le bas */
+    left: 1.6rem;             /* Position depuis la gauche */
+    font-family: var(--font-tertiary); /* Police tertiaire */
+    color: rgb(46, 46, 46);  /* Couleur de texte sombre */
+    opacity: 1;               /* Visible */
 }
 
 .info-carte p,
 .info-carte h3,
 .info-carte h2 {
-    margin-bottom: .2rem;
+    margin-bottom: .2rem;     /* Marge inférieure réduite */
 }
 
 .carte-overlay:hover {
-    opacity: 1;
-    background-color: rgba(182, 182, 182, 0.651);
-    animation: opacity .5s;
+    opacity: 1;               /* Visible au survol */
+    background-color: rgba(182, 182, 182, 0.651); /* Fond gris au survol */
+    animation: opacity .5s;   /* Animation d'opacité */
 }
 
 .info-carte .bouton-voir {
-    position: relative;
-    margin-top: 2rem;
-    font-size: 10px;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1em 2.5em;
-    display: inline-block;
-    border-radius: 6em;
-    transition: all .2s;
-    border: none;
-    font-family: inherit;
-    font-weight: 500;
-    color: black;
-    background-color: white;
-    cursor: pointer;
+    position: relative;       /* Position relative */
+    margin-top: 2rem;         /* Marge supérieure */
+    font-size: 10px;          /* Taille de police petite */
+    text-transform: uppercase; /* Texte en majuscules */
+    text-decoration: none;    /* Pas de soulignement */
+    padding: 1em 2.5em;       /* Padding interne */
+    display: inline-block;    /* Affichage en ligne */
+    border-radius: 6em;       /* Bordures très arrondies */
+    transition: all .2s;      /* Transitions fluides */
+    border: none;             /* Pas de bordure */
+    font-family: inherit;     /* Hérite de la police */
+    font-weight: 500;         /* Graisse moyenne */
+    color: black;             /* Couleur noire */
+    background-color: white;  /* Fond blanc */
+    cursor: pointer;          /* Curseur pointeur */
 }
 
 .info-carte .bouton-voir:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* Translation vers le haut */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Ombre au survol */
 }
 
 .info-carte .bouton-voir:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px); /* Translation réduite quand pressé */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Ombre réduite */
 }
 
 .info-carte .bouton-voir::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;
-    background-color: #fff;
+    content: "";              /* Pseudo-élément pour effet */
+    display: inline-block;    /* Affichage en ligne */
+    height: 100%;             /* Hauteur complète */
+    width: 100%;              /* Largeur complète */
+    border-radius: 100px;     /* Bordures très arrondies */
+    position: absolute;       /* Position absolue */
+    top: 0;                   /* En haut */
+    left: 0;                  /* À gauche */
+    z-index: -1;              /* Derrière le bouton */
+    transition: all .4s;      /* Transition fluide */
+    background-color: #fff;   /* Fond blanc */
 }
 
 .info-carte .bouton-voir:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
+    transform: scaleX(1.4) scaleY(1.6); /* Agrandissement au survol */
+    opacity: 0;               /* Disparition progressive */
 }
 
 /* Arrondir la barre outils mobile */
@@ -593,64 +606,23 @@ header {
     }
 }
 
-/* --- MODALE --- */
-.modale {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.contenu-modale {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 800px;
-    border-radius: 8px;
-    position: relative;
-}
-
-.fermer-modale {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+/* --- STYLES DES BOUTONS D'ACTION UNIFIÉS --- */
+.modale-inchallah {
     cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 5px;
+    transition: all 0.3s ease;
 }
 
-.fermer-modale:hover {
-    color: black;
+.modale-inchallah:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Optimisation pour la modale CV */
-#cvModal .contenu-modale {
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-}
+/* Les styles des modales ont été supprimés car remplacés par des alertes informatives */
+/* TODO: Préparer pour Intersection Observer pour les animations futures */
 
-#cvModal iframe {
-    flex-grow: 1;
-    border: none;
-}
-
-/* Ajustement mobile pour que le CV soit lisible */
-@media (max-width: 820px) {
-    #cvModal .contenu-modale {
-        width: 95%;
-        height: 80vh;
-        margin: 10% auto;
-    }
-}
+/* --- CODE OBSOLÈTE - SECTION TERMINAL (REMPLACÉE PAR LES BARRES DE COMPÉTENCES) --- */
+/* Les styles suivants étaient utilisés pour la simulation de terminal */
+/* Ils ne sont plus utilisés depuis le remplacement par l'affichage graphique des compétences */
 
 /* --- CONFIGURATION TERMINAL AVANCÉE --- */
 .section-competences {
@@ -880,6 +852,10 @@ header {
     margin-bottom: 10px;
 }
 
+/* CODE OBSOLÈTE - STYLES TERMINAL (PLUS UTILISÉ) */
+/* Les styles suivants étaient utilisés pour la simulation de terminal */
+/* Ils ont été remplacés par l'affichage graphique des compétences au survol */
+
 /* Grille pour l'affichage des infos (Niveau, Focus...) */
 .info-grid {
     display: grid;
@@ -1084,5 +1060,214 @@ header {
     .terminal-screen {
         font-size: 13px;
         padding: 10px;
+    }
+}
+
+/* CODE OBSOLÈTE FIN - Tous les styles suivants étaient pour le terminal remplacé */
+
+/* --- SECTION ÉQUIPE & COMPÉTENCES --- */
+.section-equipe-competences {
+    background: linear-gradient(180deg, #f5f5f5 0%, #d9d9d9 100%); /* Dégradé gris */
+    padding: 3rem 1rem;        /* Padding vertical et horizontal */
+    display: flex;             /* Flexbox pour centrage */
+    justify-content: center;   /* Centrage horizontal */
+    flex-direction: column;    /* Direction verticale */
+    align-items: center;       /* Centrage vertical des enfants */
+}
+
+.membres-list {
+    display: grid;             /* Grille CSS pour layout responsive */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colonnes auto-ajustables */
+    gap: 2rem;                /* Espacement entre les cartes */
+    width: 100%;              /* Largeur complète */
+    max-width: 1200px;        /* Largeur maximale */
+    margin-top: 2rem;         /* Marge supérieure */
+}
+
+.membre {
+    background: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+    border-radius: 10px;      /* Bordures arrondies */
+    padding: 1.5rem;          /* Padding interne */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transitions fluides */
+    cursor: pointer;          /* Curseur pointeur pour indiquer interactivité */
+}
+
+.membre:hover {
+    transform: translateY(-5px); /* Translation vers le haut au survol */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée */
+}
+
+.membre-info {
+    text-align: center;       /* Centrage du texte */
+    margin-bottom: 1rem;     /* Marge inférieure */
+}
+
+.membre-info h3 {
+    color: #333;              /* Couleur sombre */
+    font-family: var(--font-tertiary); /* Police tertiaire */
+    font-size: 1.2rem;        /* Taille de police */
+    margin-bottom: 0.5rem;   /* Marge inférieure */
+}
+
+.membre-info p {
+    color: #666;              /* Couleur grise */
+    font-size: 0.9rem;        /* Taille plus petite */
+}
+
+.competence-bar {
+    display: flex;            /* Affiché par défaut */
+    flex-direction: column;   /* Direction verticale */
+    gap: 1rem;                /* Espacement entre compétences */
+    margin-top: 1rem;         /* Marge supérieure */
+}
+
+/* Les barres sont maintenant toujours visibles - plus besoin de les afficher au survol */
+/* .membre:hover .competence-bar {
+    display: flex;
+} */
+
+.competence {
+    display: flex;            /* Flexbox pour alignement */
+    align-items: center;      /* Centrage vertical */
+    gap: 1rem;                /* Espacement entre éléments */
+    padding: 0.5rem;          /* Padding interne */
+    border-radius: 5px;       /* Bordures légèrement arrondies */
+    transition: background-color 0.3s ease; /* Transition douce */
+    position: relative;       /* Position relative pour tooltips */
+}
+
+.competence:hover {
+    background-color: rgba(183, 109, 240, 0.1); /* Fond violet léger au survol */
+}
+
+.skill-name {
+    flex: 1;                  /* Prend l'espace disponible */
+    font-weight: 500;         /* Graisse moyenne */
+    color: #555;              /* Couleur grise */
+    min-width: 120px;         /* Largeur minimale */
+}
+
+.bar {
+    flex: 3;                  /* 3x plus d'espace que skill-name */
+    height: 20px;             /* Hauteur fixe */
+    background-color: rgba(183, 109, 240, 0.2); /* Fond violet très léger */
+    border-radius: 10px;      /* Bordures arrondies */
+    overflow: hidden;         /* Cache le débordement */
+    position: relative;       /* Position relative pour l'animation */
+}
+
+.fill {
+    height: 100%;             /* Hauteur complète de la barre */
+    width: 0%;                /* Largeur initiale à 0% pour animation (sera mise à jour par JS) */
+    background-color: #b76df0; /* Couleur violette unie */
+    border-radius: 10px;      /* Bordures arrondies */
+    transition: width 0.8s ease; /* Animation de largeur fluide */
+    position: relative;       /* Position relative pour effets */
+}
+
+
+.fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.3) 100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.skill-level {
+    flex: 0 0 50px;
+    text-align: right;
+    font-weight: bold;
+    color: #b76df0;
+    font-size: 0.9rem;
+}
+
+/* Tooltip au survol */
+.competence::before {
+    content: attr(data-skill) ' - Niveau ' attr(data-level) '%'; /* Contenu dynamique avec nom compétence et niveau */
+    position: absolute;       /* Position absolue pour placement */
+    bottom: 100%;             /* Au-dessus de l'élément */
+    left: 50%;                /* Centré horizontalement */
+    transform: translateX(-50%); /* Ajustement pour centrage parfait */
+    background-color: #333;   /* Fond sombre */
+    color: white;             /* Texte blanc */
+    padding: 0.5rem 1rem;     /* Padding interne */
+    border-radius: 5px;       /* Bordures arrondies */
+    font-size: 0.8rem;        /* Taille de police petite */
+    white-space: nowrap;      /* Pas de retour à la ligne */
+    opacity: 0;               /* Invisible par défaut */
+    visibility: hidden;       /* Masqué par défaut */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transitions fluides */
+    pointer-events: none;     /* Ne capture pas les événements souris */
+    z-index: 10;              /* Au-dessus des autres éléments */
+}
+
+.competence::after {
+    content: '';              /* Flèche du tooltip */
+    position: absolute;       /* Position absolue */
+    bottom: 100%;             /* Au-dessus de l'élément */
+    left: 50%;                /* Centré horizontalement */
+    transform: translateX(-50%) translateY(5px); /* Ajustement pour centrage et position */
+    border: 5px solid transparent; /* Bordure transparente */
+    border-top-color: #333;   /* Flèche vers le bas */
+    opacity: 0;               /* Invisible par défaut */
+    visibility: hidden;       /* Masqué par défaut */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transitions fluides */
+    pointer-events: none;     /* Ne capture pas les événements souris */
+    z-index: 10;              /* Au-dessus des autres éléments */
+}
+
+.competence:hover::before,
+.competence:hover::after {
+    opacity: 1;               /* Visible au survol */
+    visibility: visible;      /* Affiché au survol */
+}
+
+/* Responsive pour tablette */
+@media (max-width: 1024px) {
+    .menu-burger {
+        left: 50%;             /* Position à 50% de la gauche */
+        right: auto;           /* Annule la position right */
+        transform: translateX(-50%); /* Centre horizontalement */
+        top: 1.5rem;           /* Position verticale ajustée */
+    }
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .membres-list {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 1.5rem;           /* Espacement réduit */
+    }
+
+    .membre {
+        padding: 1rem;         /* Padding réduit sur mobile */
+    }
+
+    .competence {
+        flex-direction: column; /* Direction verticale sur mobile */
+        align-items: flex-start; /* Alignement à gauche */
+        gap: 0.5rem;           /* Espacement réduit */
+    }
+
+    .skill-name {
+        min-width: auto;       /* Largeur automatique sur mobile */
+    }
+
+    .bar {
+        width: 100%;           /* Largeur complète sur mobile */
+    }
+
+    .skill-level {
+        align-self: flex-end;  /* Alignement à droite du niveau */
     }
 }

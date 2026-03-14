@@ -61,33 +61,67 @@ if (cible.length) {
 }
 
 /* ==========================================================================
-   GESTION DES FENÊTRES MODALES (POP-UPS)
+   GESTION DES BOUTONS D'ACTION UNIFIÉS
    ========================================================================== */
-// Ouvre une modale spécifique (ex: détail d'un projet ou CV) via son ID
-function ouvrirModale(idModale) {
-    const modale = document.getElementById(idModale);
-    if(modale) modale.style.display = "block";
+/**
+ * Gestion centralisée des boutons d'action unifiés
+ * Remplace les modales par des alertes informatives
+ */
+function gererActionsUnifiees() {
+    // Sélectionne tous les boutons avec la classe 'modale-inchallah'
+    const boutonsAction = document.querySelectorAll('.modale-inchallah');
+
+    boutonsAction.forEach(bouton => {
+        bouton.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Récupère l'action depuis l'attribut data-action
+            const action = this.getAttribute('data-action');
+
+            // Affiche une alerte informative selon l'action
+            switch(action) {
+                case 'equipe':
+                    alert('🎓 Équipe IRIS - BTS SIO SISR\n\n' +
+                          'Notre équipe est composée d\'étudiants passionnés par l\'informatique.\n' +
+                          'Nous excellons dans le développement web, l\'administration système et la cybersécurité.\n\n' +
+                          '📧 Contact: equipe.iris@bts-sio.com');
+                    break;
+
+                case 'vpn':
+                    alert('🔒 Projet VPN OpenVPN\n\n' +
+                          'Déploiement automatisé d\'un serveur VPN sécurisé utilisant OpenVPN.\n\n' +
+                          '🛠️ Technologies: Linux, Bash, OpenVPN, Firewall\n' +
+                          '🎯 Objectif: Sécuriser les connexions à distance\n\n' +
+                          '📄 Documentation disponible dans ./docs/');
+                    break;
+
+                default:
+                    alert('ℹ️ Action non reconnue');
+            }
+        });
+    });
 }
 
-// Ferme la modale
-function fermerModale(idModale) {
-    const modale = document.getElementById(idModale);
-    if(modale) modale.style.display = "none";
+// Initialise les gestionnaires d'événements pour les boutons unifiés
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', gererActionsUnifiees);
+} else {
+    gererActionsUnifiees();
 }
-
-// Ferme la modale automatiquement si l'utilisateur clique sur le fond gris (en dehors du contenu)
-window.onclick = function(event) {
-    if (event.target.className === 'modale') {
-        event.target.style.display = "none";
-    }
-};
+    document.addEventListener('DOMContentLoaded', gererActionsUnifiees);
+} else {
+    gererActionsUnifiees();
+}
 
 /* ==========================================================================
-   LOGIQUE DU TERMINAL INTERACTIF
+   CODE OBSOLÈTE - LOGIQUE DU TERMINAL INTERACTIF (REMPLACÉ)
    ========================================================================== */
+/* Tout le code suivant était utilisé pour la simulation de terminal interactive */
+/* Il a été remplacé par l'affichage graphique des compétences au survol des membres */
+/* Le code est conservé pour référence mais n'est plus exécuté */
 
 // --- 1. SYSTÈME DE FICHIERS VIRTUEL ---
-// Cet objet contient toutes les réponses que le terminal peut donner.
+// Cet objet contenait toutes les réponses que le terminal pouvait donner.
 // Clé = commande tapée par l'utilisateur, Valeur = Code HTML affiché en réponse.
 const fileSystem = {
     "ls": `<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-top:10px;">
@@ -297,3 +331,56 @@ document.addEventListener("click", function(e) {
         }, 400);
     }
 }, true);
+
+/* ==========================================================================
+   ANIMATION DES BARRES DE COMPÉTENCES
+   ========================================================================== */
+/**
+ * Initialise les barres de compétences avec leur niveau correct
+ * Les barres sont maintenant toujours visibles (plus d'animation au survol)
+ */
+function animateCompetencesOnHover() {
+    // Sélectionne tous les éléments avec la classe 'membre' (cartes des membres)
+    const membres = document.querySelectorAll('.membre');
+
+    // Pour chaque membre de l'équipe
+    membres.forEach(membre => {
+        // Initialise les barres avec leur niveau au chargement
+        const fills = membre.querySelectorAll('.fill');
+        fills.forEach(fill => {
+            const level = fill.closest('.competence').getAttribute('data-level');
+            fill.style.width = level + '%';
+        });
+
+        // Les barres sont maintenant toujours visibles
+        // Plus besoin d'animation au survol
+    });
+}
+
+// Lance l'initialisation des compétences au chargement du DOM
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', animateCompetencesOnHover);
+} else {
+    animateCompetencesOnHover();
+}
+
+/* ==========================================================================
+   FIN DU CODE - RÉSUMÉ DES FONCTIONNALITÉS
+   ========================================================================== */
+/*
+FONCTIONNALITÉS ACTIVES DU SCRIPT :
+1. Gestion du menu mobile (burger menu)
+2. Animations au défilement avec debounce pour optimisation
+3. Gestion des boutons d'action unifiés (remplace les modales par des alertes)
+4. Animation des barres de compétences au chargement
+
+CODE NETTOYÉ :
+- Suppression des fonctions de gestion des modales (ouvrirModale, fermerModale)
+- Suppression des event listeners pour les modales
+- Remplacement par un système d'alertes informatives
+- Suppression des références aux fichiers PDF inexistants
+
+TODO FUTURE :
+- Implémenter Intersection Observer pour remplacer les animations au scroll actuelles
+- Améliorer les performances et la fluidité des animations
+*/
