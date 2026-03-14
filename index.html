@@ -43,6 +43,7 @@
                     <li class="element-menu"><a href="#" class="lien-menu">Accueil</a></li>
                     <li class="element-menu"><a href="#competences" class="lien-menu">Équipe / compétences</a></li>
                     <li class="element-menu"><a href="#projets" class="lien-menu">Projets</a></li>
+                    <li class="element-menu"><a href="#devis" class="lien-menu">Devis</a></li>
                 </ul>
             </nav>
         </aside>
@@ -369,11 +370,87 @@
             </div>
         </section>
 
+        <section class="section-devis fade-in" id="devis" data-animation="haut">
+            <div class="entete-projets entete-devis fade-in-down">
+                <h1>Devis de déploiement</h1>
+            </div>
+
+            <div class="devis-wrapper fade-in-up">
+                <p class="devis-intro"><i class="fas fa-server" aria-hidden="true"></i> Choisis d'abord ton type de projet, puis ajuste les options de déploiement.</p>
+
+                <fieldset class="devis-projets" aria-label="Type de projet">
+                    <label class="projet-card">
+                        <input type="radio" name="type-projet" value="vitrine" checked>
+                        <span class="projet-card-title">Site vitrine</span>
+                        <span class="projet-card-desc">Portfolio, landing page, site institutionnel.</span>
+                    </label>
+                    <label class="projet-card">
+                        <input type="radio" name="type-projet" value="dynamique">
+                        <span class="projet-card-title">Site dynamique</span>
+                        <span class="projet-card-desc">Blog, espace client, contenu évolutif.</span>
+                    </label>
+                    <label class="projet-card">
+                        <input type="radio" name="type-projet" value="ecommerce">
+                        <span class="projet-card-title">E-commerce</span>
+                        <span class="projet-card-desc">Catalogue, commandes, paiements.</span>
+                    </label>
+                </fieldset>
+
+                <form class="devis-form" id="devis-form">
+                    <div class="devis-champ">
+                        <label class="devis-label" for="type-hebergement">Type d'hébergement</label>
+                        <select id="type-hebergement" name="type-hebergement">
+                            <option value="10">Mutualisé (10 EUR / mois)</option>
+                            <option value="35">VPS (35 EUR / mois)</option>
+                            <option value="80">Cloud dédié (80 EUR / mois)</option>
+                        </select>
+                    </div>
+
+                    <div class="devis-champ">
+                        <label class="devis-label" for="stockage">Stockage estimé (Go)</label>
+                        <input type="number" id="stockage" name="stockage" min="1" value="10">
+                    </div>
+
+                    <div class="devis-champ">
+                        <label class="devis-label" for="trafic">Trafic mensuel (Go)</label>
+                        <input type="number" id="trafic" name="trafic" min="1" value="50">
+                    </div>
+
+                    <div class="devis-champ">
+                        <label class="devis-label" for="maintenance">Maintenance (heures / mois)</label>
+                        <input type="number" id="maintenance" name="maintenance" min="0" value="2">
+                    </div>
+
+                    <div class="devis-checks">
+                        <label><input type="checkbox" id="nom-domaine" checked><span>Nom de domaine (+12 EUR / mois)</span></label>
+                        <label><input type="checkbox" id="ssl"><span>Certificat SSL premium (+8 EUR / mois)</span></label>
+                        <label><input type="checkbox" id="backup" checked><span>Sauvegarde automatique (+15 EUR / mois)</span></label>
+                    </div>
+                </form>
+
+                <div class="devis-resultat" id="devis-resultat" aria-live="polite">
+                    <div class="devis-kpis">
+                        <article class="devis-kpi">
+                            <p class="devis-kpi-label">Coût d'installation</p>
+                            <p class="devis-kpi-value" id="cout-installation">0 EUR</p>
+                        </article>
+                        <article class="devis-kpi devis-kpi-main">
+                            <p class="devis-kpi-label">Coût mensuel estimé</p>
+                            <p class="devis-kpi-value" id="cout-mensuel">0 EUR</p>
+                        </article>
+                    </div>
+                    <p class="devis-projet-actif">Projet sélectionné: <span id="projet-selection">Site vitrine</span></p>
+                    <p class="devis-note">Estimation indicative, hors développement initial.</p>
+                </div>
+            </div>
+        </section>
+
         <div class="barre-outils-mobile">
             <nav>
                 <a href="#" class="outil-link"><i class="fas fa-home"></i><span>Accueil</span></a>
                 <a href="#competences" class="outil-link outil-link-combine"><i class="fas fa-users"></i><span>Équipe / compétences</span></a>
                 <a href="#projets" class="outil-link"><i class="fas fa-folder-open"></i><span>Projets</span></a>
+                <a href="#devis" class="outil-link"><i class="fas fa-calculator"></i><span>Devis</span></a>
             </nav>
         </div>
     </div>

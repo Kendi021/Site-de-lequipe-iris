@@ -124,14 +124,21 @@ html {
 
 /* --- STYLES DES TITRES --- */
 .entete-section h1,
-.entete-projets h1 {
-    font-family: var(--font-tertiary); /* Police tertiaire (définie dans proprieties.css) */
-    text-transform: uppercase;         /* Texte en majuscules */
-    padding: 1rem;                    /* Padding interne */
-    margin: 1rem;                     /* Marge externe */
-    font-size: 30px;                  /* Taille de police */
-    border-bottom: 2px solid rgba(0, 0, 0, 0.493); /* Ligne sous le titre */
-    text-align: center;               /* Centrage du texte */
+.entete-projets h1,
+.entete-section-terminal h1 {
+    font-family: var(--font-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.82rem 1.6rem;
+    margin: 0;
+    font-size: 2rem;
+    color: #2a2b31;
+    text-align: center;
+    display: inline-block;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.42);
+    box-shadow: 0 10px 24px rgba(30, 24, 35, 0.08);
 }
 
 /* --- MENU BURGER (MOBILE) --- */
@@ -366,14 +373,18 @@ header::after {
 .section-projets {
     width: 100%;
     margin-bottom: 0;
+    background-color: #ededf2;
+    background-image: linear-gradient(180deg, #fafafa 0%, #dadbdb 100%);
     box-shadow: 1px 12px 71px -13px rgba(0, 0, 0, 0.55);
 }
 
 .entete-projets {
     display: flex;
     justify-content: center;
-    background-color: #fafafa;
+    background-color: transparent;
     color: rgb(37, 37, 37);
+    margin-bottom: 0.9rem;
+    padding-top: 1.2rem;
 }
 
 .cartes-projets {
@@ -382,8 +393,8 @@ header::after {
     flex-wrap: wrap;
     padding-bottom: 2.5rem;
     padding-top: 3rem;
-    background-color: #ededf2;
-    background-image: linear-gradient(180deg, #fafafa 0%, #dadbdb 100%);
+    background-color: transparent;
+    background-image: none;
 }
 
 .carte {
@@ -513,6 +524,242 @@ header::after {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* --- SECTION DEVIS --- */
+.section-devis {
+    width: 100%;
+    padding: 2.8rem 1rem 4.2rem;
+    background: radial-gradient(circle at 12% 18%, rgba(165, 82, 242, 0.16) 0%, rgba(165, 82, 242, 0) 40%), linear-gradient(180deg, #dadbdb 0%, #ece7f0 52%, #efefef 100%);
+}
+
+.entete-devis {
+    background: transparent;
+    margin-bottom: 0.9rem;
+}
+
+.devis-wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.92) 0%, rgba(246, 241, 250, 0.88) 100%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 24px 40px rgba(28, 24, 32, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.devis-wrapper::after {
+    content: "";
+    position: absolute;
+    top: -130px;
+    right: -110px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(183, 109, 240, 0.2) 0%, rgba(183, 109, 240, 0) 65%);
+    pointer-events: none;
+}
+
+.devis-intro {
+    text-align: center;
+    margin-bottom: 1.6rem;
+    color: #2f2a35;
+    font-family: var(--font-action);
+    font-size: 1.02rem;
+}
+
+.devis-intro i {
+    color: #b76df0;
+    margin-right: 0.45rem;
+}
+
+.devis-projets {
+    border: none;
+    margin: 0 0 1.1rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 0.75rem;
+    position: relative;
+    z-index: 1;
+}
+
+.projet-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.28rem;
+    padding: 0.85rem;
+    border-radius: 12px;
+    border: 1px solid rgba(183, 109, 240, 0.24);
+    background: rgba(255, 255, 255, 0.78);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.projet-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(35, 30, 41, 0.1);
+}
+
+.projet-card input[type="radio"] {
+    accent-color: #b76df0;
+    width: 16px;
+    height: 16px;
+}
+
+.projet-card:has(input:checked) {
+    border-color: #b76df0;
+    background: linear-gradient(160deg, rgba(245, 238, 252, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
+    box-shadow: 0 0 0 2px rgba(183, 109, 240, 0.22);
+}
+
+.projet-card-title {
+    font-family: var(--font-tertiary);
+    color: #211b28;
+    font-size: 0.92rem;
+}
+
+.projet-card-desc {
+    font-family: var(--font-action);
+    color: #575061;
+    font-size: 0.82rem;
+}
+
+.devis-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 0.95rem 1.1rem;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+.devis-champ {
+    display: grid;
+    gap: 0.42rem;
+}
+
+.devis-label {
+    font-family: var(--font-tertiary);
+    color: #241f2a;
+    font-size: 0.86rem;
+    letter-spacing: 0.2px;
+}
+
+.devis-form input[type="number"],
+.devis-form select {
+    width: 100%;
+    border: 1px solid #cbc3d4;
+    border-radius: 10px;
+    padding: 0.68rem 0.75rem;
+    font-family: var(--font-action);
+    color: #26212d;
+    background: rgba(255, 255, 255, 0.92);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.devis-form input[type="number"]:focus,
+.devis-form select:focus {
+    border-color: #b76df0;
+    box-shadow: 0 0 0 3px rgba(183, 109, 240, 0.16);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.devis-checks {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: 0.55rem;
+    margin-top: 0.45rem;
+    font-family: var(--font-action);
+    color: #312c38;
+}
+
+.devis-checks label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.55rem;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(203, 195, 212, 0.7);
+    border-radius: 10px;
+    padding: 0.5rem 0.62rem;
+}
+
+.devis-checks input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #f50000;
+    flex: 0 0 auto;
+}
+
+.devis-checks span {
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+.devis-resultat {
+    margin-top: 1.35rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(165, 82, 242, 0.22);
+    border-radius: 14px;
+    background: linear-gradient(140deg, rgba(250, 248, 252, 0.95) 0%, rgba(244, 236, 251, 0.82) 100%);
+    font-family: var(--font-action);
+    position: relative;
+    z-index: 1;
+}
+
+.devis-kpis {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    gap: 0.8rem;
+}
+
+.devis-kpi {
+    background: #fff;
+    border: 1px solid #e3d8ef;
+    border-radius: 12px;
+    padding: 0.75rem 0.8rem;
+}
+
+.devis-kpi-label {
+    margin: 0;
+    font-size: 0.84rem;
+    letter-spacing: 0.2px;
+    color: #5d5568;
+}
+
+.devis-kpi-value {
+    margin: 0.3rem 0 0;
+    font-family: var(--font-tertiary);
+    font-weight: 700;
+    color: #201a28;
+    font-size: 1.05rem;
+}
+
+.devis-kpi-main {
+    border-color: rgba(245, 0, 0, 0.22);
+    background: linear-gradient(150deg, #ffffff 0%, #fff2f2 100%);
+}
+
+.devis-projet-actif {
+    margin-top: 0.7rem;
+    color: #463f50;
+    font-size: 0.88rem;
+}
+
+#projet-selection {
+    color: #b76df0;
+    font-weight: 700;
+}
+
+.devis-note {
+    margin-top: 0.75rem;
+    color: #5f5968;
+    font-size: 0.88rem;
+}
+
 .barre-outils-mobile {
     border-radius: 20px 20px 0 0 !important;
     backdrop-filter: blur(12px);
@@ -598,24 +845,24 @@ header::after {
     .menu-burger {
         display: none !important;
     }
+
+    .devis-form {
+        grid-template-columns: 1fr;
+    }
+
+    .devis-projets {
+        grid-template-columns: 1fr;
+    }
+
+    .devis-kpis {
+        grid-template-columns: 1fr;
+    }
 }
 
 .entete-section-terminal {
     text-align: center;
     margin-bottom: 1rem;
     padding-top: 2rem;
-}
-
-.entete-section-terminal h1 {
-    font-family: var(--font-tertiary);
-    text-transform: uppercase;
-    font-size: 30px;
-    padding: 1rem;
-    margin: 1rem;
-    text-align: center;
-    color: #b76df0;
-    border-bottom: 2px solid rgba(183, 109, 240, 0.55);
-    display: inline-block;
 }
 
 .entete-section-terminal p {
@@ -1046,6 +1293,26 @@ header::after {
     .section-equipe-competences {
         margin-top: -3.25rem;
         padding: 5.75rem 0 1.5rem;
+    }
+
+    .section-devis {
+        padding: 1.5rem 0.6rem 2rem;
+    }
+
+    .devis-wrapper {
+        padding: 1.05rem;
+    }
+
+    .devis-intro {
+        font-size: 0.93rem;
+    }
+
+    .entete-section h1,
+    .entete-projets h1,
+    .entete-section-terminal h1 {
+        font-size: 1.55rem;
+        padding: 0.72rem 1rem;
+        letter-spacing: 1px;
     }
 
     header::after {
