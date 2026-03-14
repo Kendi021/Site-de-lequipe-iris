@@ -1,182 +1,102 @@
 <!DOCTYPE html>
-<!-- Déclaration du type de document HTML5 -->
 <html lang="fr">
-<!-- Langue du document : français -->
 
 <head>
-    <!-- Métadonnées et liens vers les ressources externes -->
     <meta charset="UTF-8">
-    <!-- Encodage des caractères : UTF-8 pour supporter les accents français -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Mode de compatibilité pour Internet Explorer -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Viewport pour la responsivité mobile -->
     <meta name="description" content="Site de l'équipe IRIS, BTS SIO SISR.">
-    <!-- Description du site pour les moteurs de recherche -->
-
-    <!-- Icônes du site (favicon) -->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png">
-    <!-- Icône pour appareils Apple -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    <!-- Icône standard 32x32 -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <link rel="manifest" href="assets/images/site.webmanifest">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- Styles principaux -->
     <link rel="stylesheet" href="./assets/css/proprieties.css">
-    <!-- Propriétés CSS supplémentaires -->
     <link rel="stylesheet" href="./assets/css/KeyFrames.css">
-    <title>Site ?? de l'équipe IRIS - BTS SIO </title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Site de l'équipe IRIS - BTS SIO</title>
 </head>
 
 <body>
-    <!-- Corps principal du document -->
     <div class="container">
-        <!-- Conteneur principal qui englobe tout le contenu -->
-
-        <!-- Menu burger pour mobile -->
-        <div class="menu-burger" id="fermer-menu">
-            <!-- Bouton hamburger pour ouvrir/fermer le menu sur mobile -->
+        <!-- Menu mobile -->
+        <div class="menu-burger" id="fermer-menu" aria-label="Ouvrir le menu" role="button" tabindex="0">
             <div class="ligne" id="ligne1"></div>
-            <!-- Première ligne du hamburger -->
             <div class="ligne" id="ligne2"></div>
-            <!-- Deuxième ligne du hamburger -->
             <div class="ligne" id="ligne3"></div>
-            <!-- Troisième ligne du hamburger -->
             <span>Fermer</span>
-            <!-- Texte du bouton -->
         </div>
 
-        <!-- En-tête du site -->
         <header>
-            <!-- Section d'en-tête avec image de fond et titre -->
             <div class="conteneur-image">
-                <!-- Conteneur pour l'image de fond -->
                 <img src="./assets/images/backgroundimg.jpg" alt="Image de fond de l'équipe">
-                <!-- Image de fond représentant l'équipe IRIS -->
             </div>
             <div class="banniere">
-                <!-- Bannière avec titre et bouton -->
                 <h1 class="style-titre">Site de l'équipe IRIS</h1>
-                <!-- Titre principal du site -->
-                <p>BTS SIO </p>
+                <p>BTS SIO</p>
                 <a class="bouton-personnalise" id="bouton-banniere" href="#competences">Découvrir l'équipe</a>
             </div>
         </header>
 
-        <!-- Barre latérale de navigation -->
         <aside class="barre-laterale">
-            <!-- Section latérale avec menu de navigation -->
             <nav>
-                <!-- Navigation principale -->
                 <ul class="menu">
-                    <!-- Liste des éléments du menu -->
                     <li class="element-menu"><a href="#" class="lien-menu">Accueil</a></li>
-                    <!-- Lien vers la section accueil -->
-                    <li class="element-menu"><a href="#competences" class="lien-menu">Compétences</a></li>
-                    <!-- Lien vers la section compétences -->
+                    <li class="element-menu"><a href="#competences" class="lien-menu">Équipe / compétences</a></li>
                     <li class="element-menu"><a href="#projets" class="lien-menu">Projets</a></li>
-                    <!-- Lien vers la section projets -->
                 </ul>
             </nav>
-            <div class="reseaux-sociaux">
-                <!-- Liens vers les réseaux sociaux -->
-                <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <!-- Lien GitHub (placeholder) -->
-                <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <!-- Lien LinkedIn (placeholder) -->
-            </div>
         </aside>
 
-        <!-- Section principale : Équipe et compétences -->
-        <section class="section-equipe-competences" id="competences">
-            <!-- Section fusionnée pour présenter l'équipe et leurs compétences -->
-            <!-- ID "competences" pour l'ancre de navigation -->
-            <div class="entete-section-terminal" data-animation="haut">
-                <!-- En-tête de section avec animation au scroll -->
+        <!-- Présentation de l'équipe -->
+        <section class="section-equipe-competences fade-in" id="competences">
+            <div class="entete-section-terminal fade-in-down" data-animation="haut">
                 <h1>Notre équipe & compétences</h1>
-                <!-- Titre de la section -->
             </div>
-            <div class="membres-list" data-animation="haut">
-                <!-- Grille responsive des membres de l'équipe -->
-                <!-- Chaque membre a ses infos et compétences cachées par défaut -->
 
-                <!-- Premier membre : CADET Kendi -->
-                <div class="membre">
-                    <!-- Carte d'un membre - au survol, affiche les compétences -->
+            <div class="membres-list fade-in-up" data-animation="haut">
+                <div class="membre fade-in-up fade-in-up-delay-0">
                     <div class="membre-info">
-                        <!-- Informations de base du membre -->
                         <h3>CADET Kendi</h3>
-                        <!-- Nom du membre -->
                         <p>Rôle / SISR</p>
-                        <!-- Rôle et spécialité -->
                     </div>
                     <div class="competence-bar">
-                        <!-- Conteneur des barres de compétences (caché par défaut) -->
-
-                        <!-- Compétence HTML5 -->
                         <div class="competence" data-skill="HTML5" data-level="70">
-                            <!-- Élément compétence avec données pour tooltip et animation -->
                             <span class="skill-name">HTML5</span>
-                            <!-- Nom de la compétence -->
-                            <div class="bar">
-                                <!-- Barre de progression -->
-                                <div class="fill"></div>
-                                <!-- Partie remplie qui s'anime -->
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">70%</span>
-                            <!-- Niveau affiché -->
                         </div>
-
-                        <!-- Compétence CSS3 -->
                         <div class="competence" data-skill="CSS3" data-level="75">
                             <span class="skill-name">CSS3</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">75%</span>
                         </div>
-
-                        <!-- Compétence JavaScript -->
                         <div class="competence" data-skill="JavaScript" data-level="45">
                             <span class="skill-name">JavaScript</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">45%</span>
                         </div>
-
-                        <!-- Compétence Python -->
                         <div class="competence" data-skill="Python" data-level="50">
                             <span class="skill-name">Python</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">50%</span>
                         </div>
-
-                        <!-- Compétence Linux -->
                         <div class="competence" data-skill="Linux" data-level="80">
                             <span class="skill-name">Linux</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">80%</span>
                         </div>
-
-                        <!-- Compétence Active Directory -->
                         <div class="competence" data-skill="Active Directory" data-level="60">
                             <span class="skill-name">Active Directory</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">60%</span>
                         </div>
                     </div>
+                    <div class="membre-actions">
+                        <button type="button" class="bouton-membre">En savoir plus</button>
+                    </div>
                 </div>
 
-                <!-- Deuxième membre : Membre 2 -->
-                <div class="membre">
+                <div class="membre fade-in-up fade-in-up-delay-1">
                     <div class="membre-info">
                         <h3>Membre 2</h3>
                         <p>Rôle / Spécialité</p>
@@ -184,51 +104,41 @@
                     <div class="competence-bar">
                         <div class="competence" data-skill="HTML5" data-level="65">
                             <span class="skill-name">HTML5</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">65%</span>
                         </div>
                         <div class="competence" data-skill="CSS3" data-level="70">
                             <span class="skill-name">CSS3</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">70%</span>
                         </div>
                         <div class="competence" data-skill="JavaScript" data-level="50">
                             <span class="skill-name">JavaScript</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">50%</span>
                         </div>
                         <div class="competence" data-skill="Python" data-level="55">
                             <span class="skill-name">Python</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">55%</span>
                         </div>
                         <div class="competence" data-skill="Linux" data-level="75">
                             <span class="skill-name">Linux</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">75%</span>
                         </div>
                         <div class="competence" data-skill="Active Directory" data-level="65">
                             <span class="skill-name">Active Directory</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">65%</span>
                         </div>
                     </div>
+                    <div class="membre-actions">
+                        <button type="button" class="bouton-membre">En savoir plus</button>
+                    </div>
                 </div>
 
-                <!-- Troisième membre : Membre 3 -->
-                <div class="membre">
+                <div class="membre fade-in-up fade-in-up-delay-2">
                     <div class="membre-info">
                         <h3>Membre 3</h3>
                         <p>Rôle / Spécialité</p>
@@ -236,51 +146,41 @@
                     <div class="competence-bar">
                         <div class="competence" data-skill="HTML5" data-level="60">
                             <span class="skill-name">HTML5</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">60%</span>
                         </div>
                         <div class="competence" data-skill="CSS3" data-level="65">
                             <span class="skill-name">CSS3</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">65%</span>
                         </div>
                         <div class="competence" data-skill="JavaScript" data-level="40">
                             <span class="skill-name">JavaScript</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">40%</span>
                         </div>
                         <div class="competence" data-skill="Python" data-level="45">
                             <span class="skill-name">Python</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">45%</span>
                         </div>
                         <div class="competence" data-skill="Linux" data-level="70">
                             <span class="skill-name">Linux</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">70%</span>
                         </div>
                         <div class="competence" data-skill="Active Directory" data-level="55">
                             <span class="skill-name">Active Directory</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">55%</span>
                         </div>
                     </div>
+                    <div class="membre-actions">
+                        <button type="button" class="bouton-membre">En savoir plus</button>
+                    </div>
                 </div>
 
-                <!-- Quatrième membre : Membre 4 -->
-                <div class="membre">
+                <div class="membre fade-in-up fade-in-up-delay-3">
                     <div class="membre-info">
                         <h3>Membre 4</h3>
                         <p>Rôle / Spécialité</p>
@@ -288,50 +188,40 @@
                     <div class="competence-bar">
                         <div class="competence" data-skill="HTML5" data-level="55">
                             <span class="skill-name">HTML5</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">55%</span>
                         </div>
                         <div class="competence" data-skill="CSS3" data-level="60">
                             <span class="skill-name">CSS3</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">60%</span>
                         </div>
                         <div class="competence" data-skill="JavaScript" data-level="35">
                             <span class="skill-name">JavaScript</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">35%</span>
                         </div>
                         <div class="competence" data-skill="Python" data-level="40">
                             <span class="skill-name">Python</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">40%</span>
                         </div>
                         <div class="competence" data-skill="Linux" data-level="65">
                             <span class="skill-name">Linux</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">65%</span>
                         </div>
                         <div class="competence" data-skill="Active Directory" data-level="50">
                             <span class="skill-name">Active Directory</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">50%</span>
                         </div>
                     </div>
+                    <div class="membre-actions">
+                        <button type="button" class="bouton-membre">En savoir plus</button>
+                    </div>
                 </div>
 
-                <!-- Cinquième membre : Membre 5 -->
                 <div class="membre">
                     <div class="membre-info">
                         <h3>Membre 5</h3>
@@ -340,50 +230,40 @@
                     <div class="competence-bar">
                         <div class="competence" data-skill="HTML5" data-level="72">
                             <span class="skill-name">HTML5</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">72%</span>
                         </div>
                         <div class="competence" data-skill="CSS3" data-level="78">
                             <span class="skill-name">CSS3</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">78%</span>
                         </div>
                         <div class="competence" data-skill="JavaScript" data-level="52">
                             <span class="skill-name">JavaScript</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">52%</span>
                         </div>
                         <div class="competence" data-skill="Python" data-level="60">
                             <span class="skill-name">Python</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">60%</span>
                         </div>
                         <div class="competence" data-skill="Linux" data-level="82">
                             <span class="skill-name">Linux</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">82%</span>
                         </div>
                         <div class="competence" data-skill="Active Directory" data-level="68">
                             <span class="skill-name">Active Directory</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">68%</span>
                         </div>
                     </div>
+                    <div class="membre-actions">
+                        <button type="button" class="bouton-membre">En savoir plus</button>
+                    </div>
                 </div>
 
-                <!-- Sixième membre : Membre 6 -->
                 <div class="membre">
                     <div class="membre-info">
                         <h3>Membre 6</h3>
@@ -392,121 +272,97 @@
                     <div class="competence-bar">
                         <div class="competence" data-skill="HTML5" data-level="68">
                             <span class="skill-name">HTML5</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">68%</span>
                         </div>
                         <div class="competence" data-skill="CSS3" data-level="73">
                             <span class="skill-name">CSS3</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">73%</span>
                         </div>
                         <div class="competence" data-skill="JavaScript" data-level="48">
                             <span class="skill-name">JavaScript</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">48%</span>
                         </div>
                         <div class="competence" data-skill="Python" data-level="58">
                             <span class="skill-name">Python</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">58%</span>
                         </div>
                         <div class="competence" data-skill="Linux" data-level="77">
                             <span class="skill-name">Linux</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">77%</span>
                         </div>
                         <div class="competence" data-skill="Active Directory" data-level="62">
                             <span class="skill-name">Active Directory</span>
-                            <div class="bar">
-                                <div class="fill"></div>
-                            </div>
+                            <div class="bar"><div class="fill"></div></div>
                             <span class="skill-level">62%</span>
                         </div>
+                    </div>
+                    <div class="membre-actions">
+                        <button type="button" class="bouton-membre">En savoir plus</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section Projets -->
-        <section class="section-projets" id="projets">
-            <!-- Section présentant les projets de l'équipe IRIS -->
-            <!-- ID "projets" pour l'ancre de navigation -->
-            <div class="entete-projets">
-                <!-- En-tête de la section projets -->
+        <!-- Cartes projets -->
+        <section class="section-projets fade-in" id="projets">
+            <div class="entete-projets fade-in-down">
                 <h1>Projets de l'équipe</h1>
-                <!-- Titre de la section -->
             </div>
-            <div class="cartes-projets">
-                <!-- Grille des cartes de projets -->
 
-                <!-- Carte projet 1 : VPN -->
-                <div class="carte" data-animation="haut">
-                    <!-- Carte de projet avec animation au scroll -->
+            <div class="cartes-projets">
+                <div class="carte fade-in-up fade-in-up-delay-0" data-animation="haut">
                     <div class="wrapper-img-carte">
-                        <!-- Conteneur pour l'image du projet -->
-                        <img src="./media/proj1.jpg" alt="Projet VPN">
-                        <!-- Image illustrative du projet VPN -->
+                        <img src="./media/proj2.jpg" alt="Projet en attente">
                     </div>
                     <div class="carte-overlay">
-                        <!-- Overlay qui apparaît au survol -->
                         <div class="info-carte">
-                            <!-- Informations du projet -->
                             <h2>Projet 1</h2>
-                            <!-- Titre du projet -->
-                            <h3>VPN</h3>
-                            <button class="bouton-voir" disabled title="En développement">En savoir plus</button>
+                            <h3>En attente</h3>
+                            <button class="bouton-voir" disabled title="En développement">En développement</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Carte projet 2 : Projet générique -->
-                <div class="carte" data-animation="haut">
+                <div class="carte fade-in-up fade-in-up-delay-1" data-animation="haut">
                     <div class="wrapper-img-carte">
-                        <img src="./media/proj2.jpg" alt="Projet 2">
+                        <img src="./media/proj2.jpg" alt="Projet en attente">
                     </div>
                     <div class="carte-overlay">
                         <div class="info-carte">
                             <h2>Projet 2</h2>
-                            <h3>...</h3>
-                            <button class="bouton-voir">En savoir plus</button>
+                            <h3>En attente</h3>
+                            <button class="bouton-voir" disabled title="En développement">En développement</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Carte projet 3 : Projet générique -->
-                <div class="carte" data-animation="haut">
+                <div class="carte fade-in-up fade-in-up-delay-2" data-animation="haut">
                     <div class="wrapper-img-carte">
-                        <img src="./media/proj3.jpg" alt="Projet 3">
+                        <img src="./media/proj2.jpg" alt="Projet en attente">
                     </div>
                     <div class="carte-overlay">
                         <div class="info-carte">
                             <h2>Projet 3</h2>
-                            <h3>...</h3>
-                            <button class="bouton-voir modale-inchallah">En savoir plus</button>
+                            <h3>En attente</h3>
+                            <button class="bouton-voir" disabled title="En développement">En développement</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Carte projet 4 : Projet générique -->
-                <div class="carte" data-animation="haut">
+                <div class="carte fade-in-up fade-in-up-delay-3" data-animation="haut">
                     <div class="wrapper-img-carte">
-                        <img src="./media/proj4.jpg" alt="Projet 4">
+                        <img src="./media/proj2.jpg" alt="Projet en attente">
                     </div>
                     <div class="carte-overlay">
                         <div class="info-carte">
                             <h2>Projet 4</h2>
-                            <h3>...</h3>
-                            <button class="bouton-voir modale-inchallah">En savoir plus</button>
+                            <h3>En attente</h3>
+                            <button class="bouton-voir" disabled title="En développement">En développement</button>
                         </div>
                     </div>
                 </div>
@@ -516,15 +372,13 @@
         <div class="barre-outils-mobile">
             <nav>
                 <a href="#" class="outil-link"><i class="fas fa-home"></i><span>Accueil</span></a>
-                <a href="#membres" class="outil-link"><i class="fas fa-users"></i><span>Équipe</span></a>
-                <a href="#competences" class="outil-link"><i class="fas fa-cogs"></i><span>Compétences</span></a>
+                <a href="#competences" class="outil-link outil-link-combine"><i class="fas fa-users"></i><span>Équipe / compétences</span></a>
                 <a href="#projets" class="outil-link"><i class="fas fa-folder-open"></i><span>Projets</span></a>
             </nav>
         </div>
     </div>
 
-    <!-- Inclusion du fichier JavaScript principal -->
     <script src="./script.js"></script>
-    <!-- Charge le script contenant toutes les fonctionnalités interactives -->
 </body>
+
 </html>
