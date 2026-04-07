@@ -464,6 +464,9 @@ header::after {
     background-color: #ededf2;
     background-image: linear-gradient(180deg, #fafafa 0%, #dadbdb 100%);
     box-shadow: 1px 12px 71px -13px rgba(0, 0, 0, 0.55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .entete-projets {
@@ -486,8 +489,9 @@ header::after {
 }
 
 .carte {
-    width: 20rem;
-    height: 30rem;
+    width: min(28rem, calc(100vw - 2.5rem));
+    aspect-ratio: 1 / 1;
+    height: auto;
     margin: 1rem;
     border: 1px transparent;
     border-radius: 30px;
@@ -510,10 +514,10 @@ header::after {
 }
 
 .carte-overlay {
-    width: 20rem;
-    height: 30rem;
+    width: 100%;
+    height: 100%;
     position: relative;
-    bottom: 30rem;
+    bottom: 100%;
     border: inherit;
     border-radius: inherit;
     opacity: 0;
@@ -534,8 +538,9 @@ header::after {
     padding: 1rem;
     box-shadow: 3px 0px 37px 6px rgba(0, 0, 0, 0.55);
     position: absolute;
-    bottom: 6rem;
-    left: 1.6rem;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
     font-family: var(--font-tertiary);
     color: rgb(46, 46, 46);
     opacity: 1;
