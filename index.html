@@ -46,19 +46,28 @@
                 <img src="./assets/images/backgroundimg.jpg" alt="Image de fond de l'équipe">
             </div>
             <div class="banniere">
-                <h1 class="style-titre">Site de l'équipe IRIS</h1>
-                <p>BTS SIO</p>
-                <a class="bouton-personnalise" id="bouton-banniere" href="#competences">Découvrir l'équipe</a>
+                <p class="hero-kicker">Equipe IRIS • BTS SIO</p>
+                <h1>Site de l'équipe IRIS</h1>
+                <p class="hero-subtitle">Une équipe d'étudiants qui présente ses profils, ses compétences clés et son premier projet collectif autour d'une identité commune.</p>
+                <div class="hero-highlights" aria-label="Points clés de l'équipe">
+                    <span class="hero-chip">Profils SISR & SLAM</span>
+                    <span class="hero-chip">Compétences visibles par membre</span>
+                    <span class="hero-chip">Projet collectif IRIS</span>
+                </div>
+                <div class="hero-actions">
+                    <a class="bouton-personnalise" href="#competences">Découvrir l'équipe</a>
+                    <a class="bouton-secondaire" href="#projets">Voir le projet</a>
+                </div>
             </div>
         </header>
 
         <aside class="barre-laterale">
             <nav>
+                <p class="menu-intro">Navigation rapide</p>
                 <ul class="menu">
                     <li class="element-menu"><a href="#" class="lien-menu">Accueil</a></li>
                     <li class="element-menu"><a href="#competences" class="lien-menu">Équipe / compétences</a></li>
                     <li class="element-menu"><a href="#projets" class="lien-menu">Projets</a></li>
-                    <li class="element-menu"><a href="#devis" class="lien-menu">Devis</a></li>
                 </ul>
             </nav>
         </aside>
@@ -71,6 +80,7 @@
             <!-- Titre de section -->
             <div class="entete-section-terminal fade-in-down" data-animation="haut">
                 <h1>Notre équipe & compétences</h1>
+                <p>Chaque membre apporte une contribution différente. Les cartes ci-dessous permettent de visualiser rapidement les domaines déjà maîtrisés et ceux encore en progression.</p>
             </div>
 
             <!-- Cartes membres + compétences -->
@@ -80,49 +90,51 @@
                 <div class="membre">
                     <div class="membre-info">
                         <h3>Zied YOUSFI</h3>
-                        <p>Rôle / Spécialité</p>
+                        <p>Profil en cours de détail</p>
+                        <span class="membre-badge">Equipe IRIS</span>
                     </div>
                     <div class="competence-bar">
                         <div class="competence" data-skill="HTML5" data-level="0">
                             <span class="skill-name">HTML5</span>
                             <div class="bar"><div class="fill"></div></div>
-                            <span class="skill-level">O%</span>
+                            <span class="skill-level">0%</span>
                         </div>
                         <div class="competence" data-skill="CSS3" data-level="0">
                             <span class="skill-name">CSS3</span>
                             <div class="bar"><div class="fill"></div></div>
-                            <span class="skill-level">O%</span>
+                            <span class="skill-level">0%</span>
                         </div>
                         <div class="competence" data-skill="JavaScript" data-level="0">
                             <span class="skill-name">JavaScript</span>
                             <div class="bar"><div class="fill"></div></div>
-                            <span class="skill-level">O%</span>
+                            <span class="skill-level">0%</span>
                         </div>
                         <div class="competence" data-skill="Python" data-level="0">
                             <span class="skill-name">Python</span>
                             <div class="bar"><div class="fill"></div></div>
-                            <span class="skill-level">O%</span>
+                            <span class="skill-level">0%</span>
                         </div>
                         <div class="competence" data-skill="Linux" data-level="0">
                             <span class="skill-name">Linux</span>
                             <div class="bar"><div class="fill"></div></div>
-                            <span class="skill-level">O%</span>
+                            <span class="skill-level">0%</span>
                         </div>
                         <div class="competence" data-skill="Active Directory" data-level="0">
                             <span class="skill-name">Active Directory</span>
                             <div class="bar"><div class="fill"></div></div>
-                            <span class="skill-level">O%</span>
+                            <span class="skill-level">0%</span>
                         </div>
                     </div>
                     <div class="membre-actions">
-                        <button type="button" class="bouton-membre">En savoir plus</button>
+                        <button type="button" class="bouton-membre" disabled>Profil à venir</button>
                     </div>
                 </div>
 
                  <div class="membre">
                     <div class="membre-info">
                         <h3>CADET Kendi</h3>
-                        <p>Rôle / SISR</p>
+                        <p>Support IT / Infrastructure</p>
+                        <span class="membre-badge membre-badge--active">Portfolio disponible</span>
                     </div>
                     <div class="competence-bar">
                         <div class="competence" data-skill="HTML5" data-level="70">
@@ -157,14 +169,15 @@
                         </div>
                     </div>
                     <div class="membre-actions">
-                        <button type="button" class="bouton-membre" onclick="window.location.href='https://kendi021.github.io/PortfoliodeKendi.github.io/'">En savoir plus</button>
+                        <button type="button" class="bouton-membre" onclick="window.location.href='https://kendi021.github.io/'">Voir le portfolio</button>
                     </div>
                 </div>
 
                 <div class="membre">
                     <div class="membre-info">
                         <h3>Amelie COLLIN</h3>
-                        <p>Rôle / Spécialité</p>
+                        <p>Profil en cours de détail</p>
+                        <span class="membre-badge">Equipe IRIS</span>
                     </div>
                     <div class="competence-bar">
                         <div class="competence" data-skill="HTML5" data-level="0">
@@ -199,14 +212,15 @@
                         </div>
                     </div>
                     <div class="membre-actions">
-                        <button type="button" class="bouton-membre">En savoir plus</button>
+                        <button type="button" class="bouton-membre" disabled>Profil à venir</button>
                     </div>
                 </div>
 
                 <div class="membre">
                     <div class="membre-info">
                         <h3>Jeremy LEMERCIER</h3>
-                        <p>Rôle / Spécialité</p>
+                        <p>Profil en cours de détail</p>
+                        <span class="membre-badge">Equipe IRIS</span>
                     </div>
                     <div class="competence-bar">
                         <div class="competence" data-skill="HTML5" data-level="0">
@@ -241,14 +255,15 @@
                         </div>
                     </div>
                     <div class="membre-actions">
-                        <button type="button" class="bouton-membre">En savoir plus</button>
+                        <button type="button" class="bouton-membre" disabled>Profil à venir</button>
                     </div>
                 </div>
 
                 <div class="membre">
                     <div class="membre-info">
                         <h3>Lou CERTEAUX</h3>
-                        <p>Rôle / Spécialité</p>
+                        <p>Profil technique polyvalent</p>
+                        <span class="membre-badge">Equipe IRIS</span>
                     </div>
                     <div class="competence-bar">
                         <div class="competence" data-skill="HTML5" data-level="70">
@@ -283,14 +298,15 @@
                         </div>
                     </div>
                     <div class="membre-actions">
-                        <button type="button" class="bouton-membre">En savoir plus</button>
+                        <button type="button" class="bouton-membre" disabled>Profil à venir</button>
                     </div>
                 </div>
 
                 <div class="membre">
                     <div class="membre-info">
                         <h3>Soumaya BOUFI</h3>
-                        <p>Rôle / SLAM</p>
+                        <p>Développement / SLAM</p>
+                        <span class="membre-badge">Equipe IRIS</span>
                     </div>
                     <div class="competence-bar">
                         <div class="competence" data-skill="HTML5" data-level="70">
@@ -325,7 +341,7 @@
                         </div>
                     </div>
                     <div class="membre-actions">
-                        <button type="button" class="bouton-membre">En savoir plus</button>
+                        <button type="button" class="bouton-membre" disabled>Profil à venir</button>
                     </div>
                 </div>
             </div>
@@ -338,22 +354,37 @@
         <section class="section-projets fade-in" id="projets">
             <!-- Titre section projets -->
             <div class="entete-projets fade-in-down" data-animation="haut" data-animation-delay="40">
-                <h1>Projets de l'équipe</h1>
+                <div class="section-heading-block">
+                    <p class="section-kicker">Projet collectif</p>
+                    <h1>Projets de l'équipe</h1>
+                    <p>La page met aujourd'hui en avant la réalisation commune déjà visible. Les futurs projets de l'équipe viendront enrichir cette section au fil de l'année.</p>
+                </div>
             </div>
 
             <!-- Cartes projets -->
-            
+            <div class="cartes-projets">
                 <div class="carte fade-in-up fade-in-up-delay-0" data-animation="haut">
                     <div class="wrapper-img-carte">
                         <img src="./media/Militaire.jpg" alt="Photo militaire du projet">
                     </div>
                     <div class="carte-overlay">
                         <div class="info-carte">
-                            <h2>Magasin D'équipements et armements militaires</h2>
-                            <a class="bouton-voir" href="./shop.html" title="Ouvrir la boutique">Voir la boutique</a>
+                            <span class="project-badge">Disponible</span>
+                            <h2>Boutique IRIS</h2>
+                            <h3>Projet vitrine collectif</h3>
+                            <p>Une première réalisation commune pour poser une identité graphique, une logique de navigation et une structure de présentation exploitable.</p>
+                            <ul class="project-points">
+                                <li>Projet d'équipe servant de base de démonstration</li>
+                                <li>Approche visuelle commune et premier univers de marque</li>
+                                <li>Section prête à accueillir d'autres projets ensuite</li>
+                            </ul>
+                            <div class="project-actions">
+                                <button class="bouton-voir" type="button" disabled>Boutique à relier</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <!-- ===================================================== -->
@@ -365,7 +396,6 @@
                 <a href="#" class="outil-link"><i class="fas fa-home"></i><span>Accueil</span></a>
                 <a href="#competences" class="outil-link outil-link-combine"><i class="fas fa-users"></i><span>Équipe / compétences</span></a>
                 <a href="#projets" class="outil-link"><i class="fas fa-folder-open"></i><span>Projets</span></a>
-                <a href="#devis" class="outil-link"><i class="fas fa-calculator"></i><span>Devis</span></a>
             </nav>
         </div>
     </div>

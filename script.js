@@ -80,11 +80,14 @@ function prefersReducedMotion() {
 
 /* ---------- MENU ---------- */
 function toggleMenu() {
+  const nextState = !container?.classList.contains('afficher-menu');
   container?.classList.toggle('afficher-menu');
+  menuToggle?.setAttribute('aria-expanded', String(Boolean(nextState)));
 }
 
 function closeMenu() {
   container?.classList.remove('afficher-menu');
+  menuToggle?.setAttribute('aria-expanded', 'false');
 }
 
 function initMenuAccessibility() {
@@ -101,6 +104,12 @@ function initMenuAccessibility() {
   });
 
   menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeMenu();
+    }
+  });
 }
 
 /* ---------- ANIMATIONS PAGE ---------- */
