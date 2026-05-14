@@ -340,7 +340,7 @@ body {
 .slide .entete-section-terminal h1 {
     font-size: clamp(1.5rem, 3vw, 2rem);
     margin-bottom: 0.6rem;
-    color: #fff;
+    color: #ffffff;
     text-shadow:
         0 4px 24px rgba(139, 92, 246, 0.6),
         0 0 50px rgba(109, 40, 217, 0.3);
@@ -350,6 +350,10 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+/* Bordure plus visible pour les cartes */
+.slide .membre {
+    border: 1px solid rgba(196, 181, 253, 0.25);
 
 .slide .entete-section-terminal p {
     font-size: clamp(0.78rem, 1.2vw, 0.9rem);
@@ -375,14 +379,14 @@ body {
     padding: 1.35rem 1.4rem;
     border-radius: 26px;
     
-    /* Glassmorphism avancé */
+    /* Glassmorphism avancé - Contraste amélioré */
     background:
         linear-gradient(145deg,
-            rgba(255, 255, 255, 0.08),
-            rgba(255, 255, 255, 0.03)
+            rgba(10, 8, 20, 0.92),
+            rgba(8, 6, 18, 0.88)
         ),
-        radial-gradient(circle at top right, rgba(139, 92, 246, 0.1), transparent);
-    backdrop-filter: blur(24px) saturate(200%);
+        radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent);
+    backdrop-filter: blur(28px) saturate(220%);
     border: 1px solid var(--glass-border);
     
     /* Ombres et effets de profondeur */
@@ -412,6 +416,7 @@ body {
             transparent
     );
     transition: left 0.7s ease;
+    pointer-events: none;
 }
 
 .slide .membre:hover::before {
@@ -444,21 +449,27 @@ body {
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+    pointer-events: none;
+}
+
+.slide .membre-actions {
+    position: relative;
+    z-index: 2;
 }
 
 /* Info membre */
 .slide .membre-info h3 {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     margin-bottom: 0.2rem;
-    color: #fff;
-    text-shadow: 0 3px 20px rgba(139, 92, 246, 0.5);
-    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+    font-weight: 800;
 }
 
 .slide .membre-info p {
     font-size: 0.8rem;
     margin-bottom: 0.6rem;
-    color: #a78bfa;
+    color: #e8def8;
     line-height: 1.45;
 }
 
@@ -466,12 +477,12 @@ body {
 .slide .membre-badge {
     background:
         linear-gradient(145deg,
-            rgba(139, 92, 246, 0.38),
-            rgba(109, 40, 217, 0.28)
+            rgba(30, 25, 60, 0.9),
+            rgba(20, 18, 50, 0.85)
         ),
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent);
-    color: #f5f3ff;
-    border: 1px solid var(--glass-border);
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.15), transparent);
+    color: #ffffff;
+    border: 1px solid rgba(139, 92, 246, 0.3);
     font-size: 0.66rem;
     padding: 0.32rem 0.8rem;
     backdrop-filter: blur(10px);
@@ -505,13 +516,13 @@ body {
     padding: 0.38rem 0.75rem;
     border-radius: 14px;
     
-    /* Glassmorphism pour les chips */
+    /* Chips - Contraste renforcé pour lisibilité */
     background:
         linear-gradient(145deg,
-            rgba(139, 92, 246, 0.24),
-            rgba(109, 40, 217, 0.16)
+            rgba(20, 16, 40, 0.88),
+            rgba(10, 8, 20, 0.82)
         ),
-        radial-gradient(circle at top right, rgba(255, 255, 255, 0.06), transparent);
+        radial-gradient(circle at top right, rgba(139, 92, 246, 0.12), transparent);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(4px);
     transition: all 0.28s ease;
@@ -530,18 +541,18 @@ body {
 .slide .skill-name {
     font-size: 0.7rem;
     font-weight: 600;
-    color: #f5f3ff;
-    text-shadow: 0 1px 6px rgba(109, 40, 217, 0.3);
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .slide .skill-level {
     font-size: 0.68rem;
     font-weight: 700;
-    color: #ddd6fe;
-    background: rgba(139, 92, 246, 0.22);
+    color: #ffffff;
+    background: rgba(30, 25, 50, 0.95);
     padding: 0.15rem 0.45rem;
     border-radius: 8px;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 /* Barre masquée en mode présentation */
