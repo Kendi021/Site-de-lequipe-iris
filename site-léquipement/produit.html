@@ -1,0 +1,263 @@
+<!-- =============================================================
+     produit.html — Catalogue produit
+     8 produits filtrables par catégorie, recherche et tri
+     Dépendances : styles.css, script.js (filtres + panier partagé)
+     ============================================================= -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MILITARY PRO - Catalogue produit avec filtres et panier.">
+  <title>MILITARY PRO | Produit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ─── EN-TÊTE & NAVIGATION PRINCIPALE ─────────────────────── -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo"><i class="fas fa-shield-halved"></i> MILITARY PRO</a>
+      <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Accueil</a>
+        <a href="categorie.html">Categorie</a>
+        <a class="is-current" href="produit.html">Produit</a>
+        <a href="service.html">Service</a>
+        <a href="contrat.html">Contrat</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn" href="../index.html" title="Retour au site de l'équipe IRIS"><i
+            class="fas fa-arrow-left"></i><span>Equipe IRIS</span></a>
+        <button class="icon-btn js-open-cart" type="button"><i class="fas fa-cart-shopping"></i><span>Panier</span><span
+            class="badge js-cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── CONTENU PRINCIPAL ────────────────────────────────────── -->
+  <main>
+
+    <!-- Héros : titre et description du catalogue -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker">Catalogue</span>
+        <h1>Selection produit complete et operationnelle</h1>
+        <p class="text-muted">Filtrez, triez et ajoutez rapidement les references a votre panier pour obtenir un devis
+          personnalise.</p>
+      </div>
+    </section>
+
+    <!-- Barre de filtres (catégorie, recherche, tri) + grille de 8 produits -->
+    <section class="section">
+      <div class="container">
+        <div class="hero-actions" style="justify-content: space-between; align-items: center;">
+          <div class="filters">
+            <button class="filter-btn js-filter-btn is-active" type="button" data-filter="all">Tous</button>
+            <button class="filter-btn js-filter-btn" type="button" data-filter="armure">Armure</button>
+            <button class="filter-btn js-filter-btn" type="button" data-filter="communication">Communication</button>
+            <button class="filter-btn js-filter-btn" type="button" data-filter="optique">Optique</button>
+            <button class="filter-btn js-filter-btn" type="button" data-filter="logistique">Logistique</button>
+          </div>
+          <div class="hero-actions" style="margin-top: 0;">
+            <input class="search-input" id="search-products" type="search" placeholder="Rechercher un produit...">
+            <select class="sort-select" id="sort-products">
+              <option value="featured">Recommandes</option>
+              <option value="price-low">Prix croissant</option>
+              <option value="price-high">Prix decroissant</option>
+              <option value="rating">Meilleure note</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Grille produits — 8 articles filtrables via data-category -->
+        <div class="cards-grid cards-3" id="product-grid" style="margin-top: 1rem;">
+          <!-- Armure : Protection individuelle -->
+          <article class="card product" data-id="gilet-alpha-iv" data-name="Gilet Alpha IV" data-price="1450"
+            data-category="armure" data-rating="4.8">
+            <a href="fiche-produit.html?id=gilet-alpha-iv" class="product-img-link">
+              <img src="imag/Gilet Alpha IV.jpg" alt="Gilet Alpha IV" class="product-card-img" loading="lazy">
+            </a>
+            <span class="tag">Protection</span>
+            <h3><a class="product-link" href="fiche-produit.html?id=gilet-alpha-iv">Gilet Alpha IV</a></h3>
+            <p class="text-muted">Niveau IV, modularite complete, adaptation vehicule et debarquement.</p>
+            <span class="product-price">1 450,00 EUR</span>
+            <div class="hero-actions" style="margin-top:0;">
+              <a href="fiche-produit.html?id=gilet-alpha-iv" class="btn btn-outline"><i class="fas fa-eye"></i> Voir la
+                fiche</a>
+              <button class="btn btn-primary js-add-cart" type="button" data-id="gilet-alpha-iv"
+                data-name="Gilet Alpha IV" data-price="1450">Panier</button>
+            </div>
+          </article>
+
+          <article class="card product" data-id="casque-sentinel-m2" data-name="Casque Sentinel M2" data-price="899"
+            data-category="armure" data-rating="4.7">
+            <a href="fiche-produit.html?id=casque-sentinel-m2" class="product-img-link">
+              <img src="imag/Casque Sentinel M2.jpg" alt="Casque Sentinel M2" class="product-card-img" loading="lazy">
+            </a>
+            <span class="tag">Protection</span>
+            <h3><a class="product-link" href="fiche-produit.html?id=casque-sentinel-m2">Casque Sentinel M2</a></h3>
+            <p class="text-muted">Structure balistique legere, rail accessoire et vision nocturne.</p>
+            <span class="product-price">899,00 EUR</span>
+            <div class="hero-actions" style="margin-top:0;">
+              <a href="fiche-produit.html?id=casque-sentinel-m2" class="btn btn-outline"><i class="fas fa-eye"></i> Voir
+                la fiche</a>
+              <button class="btn btn-primary js-add-cart" type="button" data-id="casque-sentinel-m2"
+                data-name="Casque Sentinel M2" data-price="899">Panier</button>
+            </div>
+          </article>
+
+          <!-- Communication : Radios et oreillettes -->
+          <article class="card product" data-id="radio-falcon-x2" data-name="Radio Falcon X2" data-price="1220"
+            data-category="communication" data-rating="4.9">
+            <a href="fiche-produit.html?id=radio-falcon-x2" class="product-img-link">
+              <img src="imag/Radio falcon.jpg" alt="Radio Falcon X2" class="product-card-img" loading="lazy">
+            </a>
+            <span class="tag">Communication</span>
+            <h3><a class="product-link" href="fiche-produit.html?id=radio-falcon-x2">Radio Falcon X2</a></h3>
+            <p class="text-muted">Double bande, chiffrement AES, autonomie 18h, cryptage terrain.</p>
+            <span class="product-price">1 220,00 EUR</span>
+            <div class="hero-actions" style="margin-top:0;">
+              <a href="fiche-produit.html?id=radio-falcon-x2" class="btn btn-outline"><i class="fas fa-eye"></i> Voir la
+                fiche</a>
+              <button class="btn btn-primary js-add-cart" type="button" data-id="radio-falcon-x2"
+                data-name="Radio Falcon X2" data-price="1220">Panier</button>
+            </div>
+          </article>
+
+          <article class="card product" data-id="commlink-secure" data-name="Commlink Secure" data-price="420"
+            data-category="communication" data-rating="4.4">
+            <a href="fiche-produit.html?id=commlink-secure" class="product-img-link">
+              <img src="imag/Commlink Secure.jpg" alt="Commlink Secure" class="product-card-img" loading="lazy">
+            </a>
+            <span class="tag">Communication</span>
+            <h3><a class="product-link" href="fiche-produit.html?id=commlink-secure">Commlink Secure</a></h3>
+            <p class="text-muted">Oreillette active anti-bruit pour zones a forte pression acoustique.</p>
+            <span class="product-price">420,00 EUR</span>
+            <div class="hero-actions" style="margin-top:0;">
+              <a href="fiche-produit.html?id=commlink-secure" class="btn btn-outline"><i class="fas fa-eye"></i> Voir la
+                fiche</a>
+              <button class="btn btn-primary js-add-cart" type="button" data-id="commlink-secure"
+                data-name="Commlink Secure" data-price="420">Panier</button>
+            </div>
+          </article>
+
+          <!-- Optique : Vision nocturne et thermique -->
+          <article class="card product" data-id="nightsight-pro" data-name="NightSight Pro" data-price="1990"
+            data-category="optique" data-rating="4.9">
+            <a href="fiche-produit.html?id=nightsight-pro" class="product-img-link">
+              <img src="imag/NightSight Pro.jpg" alt="NightSight Pro" class="product-card-img" loading="lazy">
+            </a>
+            <span class="tag">Optique</span>
+            <h3><a class="product-link" href="fiche-produit.html?id=nightsight-pro">NightSight Pro</a></h3>
+            <p class="text-muted">Optique nocturne HD, stabilisation, faible latence video numerique.</p>
+            <span class="product-price">1 990,00 EUR</span>
+            <div class="hero-actions" style="margin-top:0;">
+              <a href="fiche-produit.html?id=nightsight-pro" class="btn btn-outline"><i class="fas fa-eye"></i> Voir la
+                fiche</a>
+              <button class="btn btn-primary js-add-cart" type="button" data-id="nightsight-pro"
+                data-name="NightSight Pro" data-price="1990">Panier</button>
+            </div>
+          </article>
+
+          <article class="card product" data-id="thermo-scout-xt" data-name="Thermo Scout XT" data-price="1640"
+            data-category="optique" data-rating="4.8">
+            <a href="fiche-produit.html?id=thermo-scout-xt" class="product-img-link">
+              <img src="imag/Thermo Scout XT.webp" alt="Thermo Scout XT" class="product-card-img" loading="lazy">
+            </a>
+            <span class="tag">Optique</span>
+            <h3><a class="product-link" href="fiche-produit.html?id=thermo-scout-xt">Thermo Scout XT</a></h3>
+            <p class="text-muted">Camera thermique 1.2 km, mode patrouille, alerte mouvement.</p>
+            <span class="product-price">1 640,00 EUR</span>
+            <div class="hero-actions" style="margin-top:0;">
+              <a href="fiche-produit.html?id=thermo-scout-xt" class="btn btn-outline"><i class="fas fa-eye"></i> Voir la
+                fiche</a>
+              <button class="btn btn-primary js-add-cart" type="button" data-id="thermo-scout-xt"
+                data-name="Thermo Scout XT" data-price="1640">Panier</button>
+            </div>
+          </article>
+
+          <!-- Logistique : Sacs et kits de survie -->
+          <article class="card product" data-id="sac-tactical-pro" data-name="Sac Tactical Pro" data-price="290"
+            data-category="logistique" data-rating="4.5">
+            <a href="fiche-produit.html?id=sac-tactical-pro" class="product-img-link">
+              <img src="imag/Sac Tactical Pro.webp" alt="Sac Tactical Pro" class="product-card-img" loading="lazy">
+            </a>
+            <span class="tag">Logistique</span>
+            <h3><a class="product-link" href="fiche-produit.html?id=sac-tactical-pro">Sac Tactical Pro</a></h3>
+            <p class="text-muted">Sac modulaire 65L, compartiments et hydratation integree.</p>
+            <span class="product-price">290,00 EUR</span>
+            <div class="hero-actions" style="margin-top:0;">
+              <a href="fiche-produit.html?id=sac-tactical-pro" class="btn btn-outline"><i class="fas fa-eye"></i> Voir
+                la fiche</a>
+              <button class="btn btn-primary js-add-cart" type="button" data-id="sac-tactical-pro"
+                data-name="Sac Tactical Pro" data-price="290">Panier</button>
+            </div>
+          </article>
+
+          <article class="card product" data-id="kit-survie-s500" data-name="Kit Survie S500" data-price="590"
+            data-category="logistique" data-rating="4.6">
+            <a href="fiche-produit.html?id=kit-survie-s500" class="product-img-link">
+              <img src="imag/Kit Survie S500.jpg" alt="Kit Survie S500" class="product-card-img" loading="lazy">
+            </a>
+            <span class="tag">Logistique</span>
+            <h3><a class="product-link" href="fiche-produit.html?id=kit-survie-s500">Kit Survie S500</a></h3>
+            <p class="text-muted">Kit complet 72h avec filtration eau, energie et soins d'urgence.</p>
+            <span class="product-price">590,00 EUR</span>
+            <div class="hero-actions" style="margin-top:0;">
+              <a href="fiche-produit.html?id=kit-survie-s500" class="btn btn-outline"><i class="fas fa-eye"></i> Voir la
+                fiche</a>
+              <button class="btn btn-primary js-add-cart" type="button" data-id="kit-survie-s500"
+                data-name="Kit Survie S500" data-price="590">Panier</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── PIED DE PAGE ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>2026 MILITARY PRO. Tous droits reserves.</p>
+      <p>Catalogue produit actif et connecte au panier global.</p>
+    </div>
+  </footer>
+
+  <!-- ─── TIROIR PANIER (partagé sur toutes les pages) ──────────── -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <header class="cart-header">
+      <div class="cart-title-row">
+        <h2 class="section-title">Votre panier</h2>
+        <button class="icon-btn js-close-cart" type="button">Fermer</button>
+      </div>
+      <p class="text-muted">Le panier est partage entre toutes les pages.</p>
+    </header>
+    <div class="cart-body">
+      <ul class="cart-list" id="cart-list"></ul>
+    </div>
+    <footer class="cart-footer">
+      <p class="cart-summary">Articles: <strong id="cart-items-total">0</strong></p>
+      <p class="cart-summary">Total: <strong id="cart-price-total">0 EUR</strong></p>
+      <div class="hero-actions">
+        <button class="btn btn-outline" id="clear-cart" type="button">Vider</button>
+        <button class="btn btn-primary" id="checkout-cart" type="button">Valider</button>
+      </div>
+    </footer>
+  </aside>
+
+  <!-- Toast de notification + script partagé (menu, panier, filtres) -->
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+<!-- =============================================================
+     fiche-produit.html — Page détail produit (style Amazon)
+     Contenu chargé dynamiquement depuis l'URL (?id=product-id)
+     Dépendances : styles.css, script.js
+     ============================================================= -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MILITARY PRO - Fiche produit détaillée.">
+  <title id="page-title">MILITARY PRO | Produit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ─── EN-TÊTE & NAVIGATION PRINCIPALE ─────────────────────── -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo"><i class="fas fa-shield-halved"></i> MILITARY PRO</a>
+      <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Accueil</a>
+        <a href="categorie.html">Categorie</a>
+        <a class="is-current" href="produit.html">Produit</a>
+        <a href="service.html">Service</a>
+        <a href="contrat.html">Contrat</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn" href="../index.html" title="Retour au site de l'équipe IRIS"><i
+            class="fas fa-arrow-left"></i><span>Equipe IRIS</span></a>
+        <button class="icon-btn js-open-cart" type="button"><i class="fas fa-cart-shopping"></i><span>Panier</span><span
+            class="badge js-cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── CONTENU PRINCIPAL ────────────────────────────────────── -->
+  <main>
+
+    <!-- Fil d'Ariane -->
+    <section class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumb" id="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a>
+          <span class="bc-sep"><i class="fas fa-chevron-right"></i></span>
+          <a href="produit.html">Produits</a>
+          <span class="bc-sep"><i class="fas fa-chevron-right"></i></span>
+          <span id="bc-category">Catégorie</span>
+          <span class="bc-sep"><i class="fas fa-chevron-right"></i></span>
+          <span id="bc-product">Produit</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ─── ZONE PRODUIT PRINCIPALE ──────────────────────────── -->
+    <section class="section product-detail-section" id="product-not-found" style="display:none;">
+      <div class="container">
+        <div class="card" style="text-align:center; padding: 3rem;">
+          <i class="fas fa-triangle-exclamation" style="font-size:3rem; color:var(--accent); margin-bottom:1rem;"></i>
+          <h2>Produit introuvable</h2>
+          <p class="text-muted">Ce produit n'existe pas ou l'identifiant est incorrect.</p>
+          <a href="produit.html" class="btn btn-primary" style="margin-top:1rem;">Retour au catalogue</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section product-detail-section" id="product-detail" style="display:none;">
+      <div class="container">
+
+        <!-- Grille principale : image gauche / infos droite -->
+        <div class="pd-grid">
+
+          <!-- ── Colonne image ── -->
+          <div class="pd-gallery">
+            <div class="pd-img-main" id="pd-img-main">
+              <div class="pd-img-placeholder">
+                <i id="pd-icon" class="fas fa-shield-halved"></i>
+              </div>
+            </div>
+            <div class="pd-img-thumbs" id="pd-thumbs">
+              <!-- Générés par JS -->
+            </div>
+          </div>
+
+          <!-- ── Colonne infos ── -->
+          <div class="pd-info">
+            <span class="tag" id="pd-tag">Catégorie</span>
+            <h1 class="pd-title" id="pd-title">Nom du produit</h1>
+
+            <!-- Étoiles & avis -->
+            <div class="pd-rating-row">
+              <span class="pd-stars" id="pd-stars" aria-label="Note"></span>
+              <span class="pd-rating-val" id="pd-rating-val">0</span>
+              <span class="pd-reviews text-muted" id="pd-reviews">(0 avis)</span>
+            </div>
+
+            <!-- Prix -->
+            <div class="pd-price-block">
+              <span class="pd-price" id="pd-price">0 EUR</span>
+              <span class="pd-vat text-muted">TTC — Hors frais de transport</span>
+            </div>
+
+            <!-- Points forts -->
+            <ul class="pd-highlights" id="pd-highlights">
+              <!-- Générés par JS -->
+            </ul>
+
+            <!-- Stock -->
+            <div class="pd-stock" id="pd-stock">
+              <i class="fas fa-circle-check" style="color:var(--success)"></i>
+              <span id="pd-stock-label">En stock</span>
+            </div>
+
+            <!-- Sélecteur quantité + bouton panier -->
+            <div class="pd-actions">
+              <div class="pd-qty-wrap">
+                <label for="pd-qty" class="pd-qty-label">Quantité</label>
+                <div class="pd-qty-ctrl">
+                  <button type="button" id="pd-qty-dec" class="pd-qty-btn" aria-label="Diminuer">−</button>
+                  <input type="number" id="pd-qty" class="pd-qty-input" value="1" min="1" max="99">
+                  <button type="button" id="pd-qty-inc" class="pd-qty-btn" aria-label="Augmenter">+</button>
+                </div>
+              </div>
+              <button class="btn btn-primary pd-btn-cart" type="button" id="pd-add-cart">
+                <i class="fas fa-cart-plus"></i> Ajouter au panier
+              </button>
+            </div>
+
+            <!-- Avantages livraison / sécurité -->
+            <div class="pd-badges">
+              <span class="pd-badge"><i class="fas fa-truck-fast"></i> Livraison sécurisée</span>
+              <span class="pd-badge"><i class="fas fa-rotate-left"></i> Retour 30 jours</span>
+              <span class="pd-badge"><i class="fas fa-shield-halved"></i> Certifié OTAN</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Onglets description / spécifications / similaires ── -->
+        <div class="pd-tabs-bar">
+          <button class="pd-tab-btn is-active" data-tab="description">Description</button>
+          <button class="pd-tab-btn" data-tab="specs">Spécifications</button>
+          <button class="pd-tab-btn" data-tab="related">Produits similaires</button>
+        </div>
+
+        <div class="pd-tab-content" id="tab-description">
+          <div class="card">
+            <h3 class="section-title">Description complète</h3>
+            <p id="pd-description" class="text-muted"></p>
+          </div>
+        </div>
+
+        <div class="pd-tab-content" id="tab-specs" style="display:none;">
+          <div class="card">
+            <h3 class="section-title">Spécifications techniques</h3>
+            <div class="table-wrap">
+              <table id="pd-specs-table">
+                <thead>
+                  <tr>
+                    <th>Caractéristique</th>
+                    <th>Valeur</th>
+                  </tr>
+                </thead>
+                <tbody id="pd-specs-body">
+                  <!-- Générées par JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="pd-tab-content" id="tab-related" style="display:none;">
+          <div class="card">
+            <h3 class="section-title">Produits similaires</h3>
+            <div class="cards-grid cards-3" id="pd-related-grid">
+              <!-- Générées par JS -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── PIED DE PAGE ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>2026 MILITARY PRO. Tous droits reserves.</p>
+      <p>Fiche produit interactive — panier global partage.</p>
+    </div>
+  </footer>
+
+  <!-- ─── TIROIR PANIER (partagé sur toutes les pages) ──────────── -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <header class="cart-header">
+      <div class="cart-title-row">
+        <h2 class="section-title">Votre panier</h2>
+        <button class="icon-btn js-close-cart" type="button">Fermer</button>
+      </div>
+      <p class="text-muted">Le panier est partage entre toutes les pages.</p>
+    </header>
+    <div class="cart-body">
+      <ul class="cart-list" id="cart-list"></ul>
+    </div>
+    <footer class="cart-footer">
+      <p class="cart-summary">Articles: <strong id="cart-items-total">0</strong></p>
+      <p class="cart-summary">Total: <strong id="cart-price-total">0 EUR</strong></p>
+      <div class="hero-actions">
+        <button class="btn btn-outline" id="clear-cart" type="button">Vider</button>
+        <button class="btn btn-primary" id="checkout-cart" type="button">Valider</button>
+      </div>
+    </footer>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>

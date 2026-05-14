@@ -1,0 +1,193 @@
+<!-- =============================================================
+     categorie.html — Page catégories
+     Vue d'ensemble des 4 familles d'équipement + tableau comparatif
+     Dépendances : styles.css, script.js (panier partagé)
+     ============================================================= -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MILITARY PRO - Categories d'equipement militaire.">
+  <title>MILITARY PRO | Categorie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ─── EN-TÊTE & NAVIGATION PRINCIPALE ─────────────────────── -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo"><i class="fas fa-shield-halved"></i> MILITARY PRO</a>
+      <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Accueil</a>
+        <a class="is-current" href="categorie.html">Categorie</a>
+        <a href="produit.html">Produit</a>
+        <a href="service.html">Service</a>
+        <a href="contrat.html">Contrat</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn" href="../index.html" title="Retour au site de l'équipe IRIS"><i
+            class="fas fa-arrow-left"></i><span>Equipe IRIS</span></a>
+        <button class="icon-btn js-open-cart" type="button"><i class="fas fa-cart-shopping"></i><span>Panier</span><span
+            class="badge js-cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── CONTENU PRINCIPAL ────────────────────────────────────── -->
+  <main>
+
+    <!-- Héros : titre de page + pills de familles d'équipement -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker">Cartographie</span>
+        <h1>Toutes les categories pour preparer vos unites</h1>
+        <p class="text-muted">Selectionnez une famille d'equipement selon la mission, le niveau de menace et la duree de
+          projection.</p>
+        <div class="pill-row">
+          <span class="pill">Protection individuelle</span>
+          <span class="pill">Communication securisee</span>
+          <span class="pill">Observation et vision</span>
+          <span class="pill">Logistique de terrain</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 cartes catégories avec liens et ajout de kit au panier -->
+    <section class="section">
+      <div class="container cards-grid cards-2">
+        <article class="card">
+          <h3>Protection individuelle</h3>
+          <p class="text-muted">Casques, gilets, plaques, kits trauma pour intervention immediate.</p>
+          <div class="hero-actions">
+            <a class="btn btn-outline js-category-pick" data-filter="armure" href="produit.html">Voir les produits</a>
+            <button class="btn btn-primary js-add-cart" type="button" data-id="starter-protection"
+              data-name="Starter protection (x4)" data-price="4790">Ajouter kit</button>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Communication securisee</h3>
+          <p class="text-muted">Radios numeriques, oreillettes actives, relais mailles et chiffrement.</p>
+          <div class="hero-actions">
+            <a class="btn btn-outline js-category-pick" data-filter="communication" href="produit.html">Voir les
+              produits</a>
+            <button class="btn btn-primary js-add-cart" type="button" data-id="starter-comms"
+              data-name="Starter communication (x4)" data-price="3290">Ajouter kit</button>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Observation et vision</h3>
+          <p class="text-muted">Optiques HD, thermique, detection mouvement et reconnaissance nocturne.</p>
+          <div class="hero-actions">
+            <a class="btn btn-outline js-category-pick" data-filter="optique" href="produit.html">Voir les produits</a>
+            <button class="btn btn-primary js-add-cart" type="button" data-id="starter-optique"
+              data-name="Starter optique (x2)" data-price="3980">Ajouter kit</button>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Logistique et transport</h3>
+          <p class="text-muted">Sacs modulaires, energie mobile, rangement, outils de maintenance.</p>
+          <div class="hero-actions">
+            <a class="btn btn-outline js-category-pick" data-filter="logistique" href="produit.html">Voir les
+              produits</a>
+            <button class="btn btn-primary js-add-cart" type="button" data-id="starter-logistique"
+              data-name="Starter logistique (x6)" data-price="2190">Ajouter kit</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Tableau comparatif : priorité, renouvellement, conformité -->
+    <section class="section">
+      <div class="container table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Categorie</th>
+              <th>Priorite mission</th>
+              <th>Cycle de renouvellement</th>
+              <th>Conformite OTAN</th>
+              <th>Niveau stock</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Protection</td>
+              <td>Critique</td>
+              <td>24 mois</td>
+              <td>Oui</td>
+              <td>Eleve</td>
+            </tr>
+            <tr>
+              <td>Communication</td>
+              <td>Eleve</td>
+              <td>18 mois</td>
+              <td>Oui</td>
+              <td>Eleve</td>
+            </tr>
+            <tr>
+              <td>Observation</td>
+              <td>Eleve</td>
+              <td>20 mois</td>
+              <td>Partielle</td>
+              <td>Moyen</td>
+            </tr>
+            <tr>
+              <td>Logistique</td>
+              <td>Moyenne</td>
+              <td>12 mois</td>
+              <td>Oui</td>
+              <td>Eleve</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── PIED DE PAGE ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>2026 MILITARY PRO. Tous droits reserves.</p>
+      <p>Classification et orientation par categorie operationnelle.</p>
+    </div>
+  </footer>
+
+  <!-- ─── TIROIR PANIER (partagé sur toutes les pages) ──────────── -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <header class="cart-header">
+      <div class="cart-title-row">
+        <h2 class="section-title">Votre panier</h2>
+        <button class="icon-btn js-close-cart" type="button">Fermer</button>
+      </div>
+      <p class="text-muted">Le panier est partage entre toutes les pages.</p>
+    </header>
+    <div class="cart-body">
+      <ul class="cart-list" id="cart-list"></ul>
+    </div>
+    <footer class="cart-footer">
+      <p class="cart-summary">Articles: <strong id="cart-items-total">0</strong></p>
+      <p class="cart-summary">Total: <strong id="cart-price-total">0 EUR</strong></p>
+      <div class="hero-actions">
+        <button class="btn btn-outline" id="clear-cart" type="button">Vider</button>
+        <button class="btn btn-primary" id="checkout-cart" type="button">Valider</button>
+      </div>
+    </footer>
+  </aside>
+
+  <!-- Toast de notification + script partagé (menu, panier, filtres) -->
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>

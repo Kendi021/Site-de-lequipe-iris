@@ -1,0 +1,206 @@
+<!-- =============================================================
+     index.html — Page d'accueil
+     Héros, pack rapide, points forts, navigation et produits vedette
+     Dépendances : styles.css, script.js (panier partagé)
+     ============================================================= -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MILITARY PRO - Accueil, equipements, categories, services, contrats et panier.">
+  <title>MILITARY PRO | Accueil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ─── EN-TÊTE & NAVIGATION PRINCIPALE ─────────────────────── -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo"><i class="fas fa-shield-halved"></i> MILITARY PRO</a>
+      <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" id="site-nav">
+        <a class="is-current" href="index.html">Accueil</a>
+        <a href="categorie.html">Categorie</a>
+        <a href="produit.html">Produit</a>
+        <a href="service.html">Service</a>
+        <a href="contrat.html">Contrat</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn" href="../index.html" title="Retour au site de l'équipe IRIS"><i
+            class="fas fa-arrow-left"></i><span>Equipe IRIS</span></a>
+        <button class="icon-btn js-open-cart" type="button"><i class="fas fa-cart-shopping"></i><span>Panier</span><span
+            class="badge js-cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── CONTENU PRINCIPAL ────────────────────────────────────── -->
+  <main>
+
+    <!-- Héros : accroche, métriques et pack mission rapide -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="kicker">Plateforme Defense</span>
+          <h1>Solutions d'equipement militaire de haute fiabilite</h1>
+          <p class="text-muted">
+            MILITARY PRO centralise l'approvisionnement, la maintenance et l'accompagnement terrain
+            pour les forces armees, unites speciales et organisations de securite.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="produit.html"><i class="fas fa-gun"></i> Explorer le catalogue</a>
+            <a class="btn btn-outline" href="contrat.html"><i class="fas fa-file-signature"></i> Voir les contrats</a>
+          </div>
+          <div class="metrics">
+            <article class="metric"><strong>15 000+</strong><span class="text-muted">References</span></article>
+            <article class="metric"><strong>98%</strong><span class="text-muted">Satisfaction</span></article>
+            <article class="metric"><strong>24/7</strong><span class="text-muted">Support</span></article>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <h2 class="section-title">Pack mission rapide</h2>
+          <p class="text-muted">Selection immediate pour equiper une unite de 12 personnes.</p>
+          <ul>
+            <li>12 gilets balistiques classe IV</li>
+            <li>12 casques de communication active</li>
+            <li>6 optiques thermique courte portee</li>
+            <li>1 kit support technique 6 mois</li>
+          </ul>
+          <div class="hero-actions">
+            <button class="btn btn-primary js-add-cart" type="button" data-id="pack-unite-12"
+              data-name="Pack unite 12 operateurs" data-price="18990">
+              Ajouter ce pack
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Points forts de la plateforme (3 feature cards) -->
+    <section class="section">
+      <div class="container">
+        <span class="kicker">Points forts</span>
+        <h2 class="section-title">Un environnement complet, de la commande au terrain</h2>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <i class="fas fa-certificate"></i>
+            <h3>Normes certifiees</h3>
+            <p class="text-muted">Conformite OTAN et audits qualite sur chaque lot.</p>
+          </article>
+          <article class="feature-card">
+            <i class="fas fa-warehouse"></i>
+            <h3>Stock multi-sites</h3>
+            <p class="text-muted">Disponibilite permanente via entrepots strategiques europeens.</p>
+          </article>
+          <article class="feature-card">
+            <i class="fas fa-gears"></i>
+            <h3>Support operationnel</h3>
+            <p class="text-muted">Maintenance preventive, corrective et formation continue.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation rapide vers les 4 pages principales -->
+    <section class="section">
+      <div class="container cards-grid cards-4">
+        <article class="card">
+          <h3>Categorie</h3>
+          <p class="text-muted">Vue strategique des familles d'equipements.</p>
+          <a class="btn btn-outline" href="categorie.html">Ouvrir</a>
+        </article>
+        <article class="card">
+          <h3>Produit</h3>
+          <p class="text-muted">Catalogue detaille avec tri, recherche et panier.</p>
+          <a class="btn btn-outline" href="produit.html">Ouvrir</a>
+        </article>
+        <article class="card">
+          <h3>Service</h3>
+          <p class="text-muted">Formation, integration, SLA et support terrain.</p>
+          <a class="btn btn-outline" href="service.html">Ouvrir</a>
+        </article>
+        <article class="card">
+          <h3>Contrat</h3>
+          <p class="text-muted">Cadre juridique et projet de contractualisation.</p>
+          <a class="btn btn-outline" href="contrat.html">Ouvrir</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sélection produits vedette (aperçu catalogue) -->
+    <section class="section">
+      <div class="container cards-grid cards-3">
+        <article class="card product">
+          <span class="tag">Nouveau</span>
+          <h3>Casque Sentinel M2</h3>
+          <p class="text-muted">Casque balistique leger avec communication active.</p>
+          <span class="product-price">899,00 EUR</span>
+          <button class="btn btn-primary js-add-cart" type="button" data-id="casque-sentinel-m2"
+            data-name="Casque Sentinel M2" data-price="899">Ajouter au panier</button>
+        </article>
+        <article class="card product">
+          <span class="tag">Populaire</span>
+          <h3>Radio Falcon X2</h3>
+          <p class="text-muted">Double bande, chiffrement, autonomie 18h.</p>
+          <span class="product-price">1 220,00 EUR</span>
+          <button class="btn btn-primary js-add-cart" type="button" data-id="radio-falcon-x2"
+            data-name="Radio Falcon X2" data-price="1220">Ajouter au panier</button>
+        </article>
+        <article class="card product">
+          <span class="tag">Pro</span>
+          <h3>NightSight Pro</h3>
+          <p class="text-muted">Optique nocturne HD stabilisee pour reconnaissance.</p>
+          <span class="product-price">1 990,00 EUR</span>
+          <button class="btn btn-primary js-add-cart" type="button" data-id="nightsight-pro" data-name="NightSight Pro"
+            data-price="1990">Ajouter au panier</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── PIED DE PAGE ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>2026 MILITARY PRO. Tous droits reserves.</p>
+      <p>Equipement militaire, services, contrats et support operationnel.</p>
+    </div>
+  </footer>
+
+  <!-- ─── TIROIR PANIER (partagé sur toutes les pages) ──────────── -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <header class="cart-header">
+      <div class="cart-title-row">
+        <h2 class="section-title">Votre panier</h2>
+        <button class="icon-btn js-close-cart" type="button">Fermer</button>
+      </div>
+      <p class="text-muted">Le panier est partage entre toutes les pages.</p>
+    </header>
+    <div class="cart-body">
+      <ul class="cart-list" id="cart-list"></ul>
+    </div>
+    <footer class="cart-footer">
+      <p class="cart-summary">Articles: <strong id="cart-items-total">0</strong></p>
+      <p class="cart-summary">Total: <strong id="cart-price-total">0 EUR</strong></p>
+      <div class="hero-actions">
+        <button class="btn btn-outline" id="clear-cart" type="button">Vider</button>
+        <button class="btn btn-primary" id="checkout-cart" type="button">Valider</button>
+      </div>
+    </footer>
+  </aside>
+
+  <!-- Toast de notification + script partagé (menu, panier, filtres) -->
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>

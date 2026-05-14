@@ -1,0 +1,181 @@
+<!-- =============================================================
+     service.html — Page services
+     Timeline d'intégration, packs de support et formulaire de contact
+     Dépendances : styles.css, script.js (panier partagé)
+     ============================================================= -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MILITARY PRO - Services de support, integration, maintenance et formation.">
+  <title>MILITARY PRO | Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ─── EN-TÊTE & NAVIGATION PRINCIPALE ─────────────────────── -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo"><i class="fas fa-shield-halved"></i> MILITARY PRO</a>
+      <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Accueil</a>
+        <a href="categorie.html">Categorie</a>
+        <a href="produit.html">Produit</a>
+        <a class="is-current" href="service.html">Service</a>
+        <a href="contrat.html">Contrat</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn" href="../index.html" title="Retour au site de l'équipe IRIS"><i
+            class="fas fa-arrow-left"></i><span>Equipe IRIS</span></a>
+        <button class="icon-btn js-open-cart" type="button"><i class="fas fa-cart-shopping"></i><span>Panier</span><span
+            class="badge js-cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── CONTENU PRINCIPAL ────────────────────────────────────── -->
+  <main>
+
+    <!-- Héros : accroche et description de l'offre de services -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker">Accompagnement</span>
+        <h1>Services complets avant, pendant et apres mission</h1>
+        <p class="text-muted">Nos equipes couvrent audit operationnel, integration technique, formation et support
+          terrain avec SLA adapte.</p>
+      </div>
+    </section>
+
+    <!-- Timeline : 4 étapes du processus d'intégration -->
+    <section class="section">
+      <div class="container timeline">
+        <article class="card">
+          <h3>1. Audit terrain</h3>
+          <p class="text-muted">Evaluation des menaces, environnement, volume de personnel et niveau d'exposition.</p>
+        </article>
+        <article class="card">
+          <h3>2. Configuration</h3>
+          <p class="text-muted">Parametrage materiel, check de compatibilite et verification pre-deploiement.</p>
+        </article>
+        <article class="card">
+          <h3>3. Formation</h3>
+          <p class="text-muted">Prise en main des equipements, maintenance niveau 1 et protocole securite.</p>
+        </article>
+        <article class="card">
+          <h3>4. Suivi operationnel</h3>
+          <p class="text-muted">Assistance 24/7, escalade technique, maintenance corrective et reporting.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3 packs de service avec prix et ajout au panier -->
+    <section class="section">
+      <div class="container cards-grid cards-3">
+        <article class="card">
+          <h3>Pack Service Standard</h3>
+          <p class="text-muted">Support ouvrable, maintenance trimestrielle, suivi inventaire.</p>
+          <span class="product-price">1 200,00 EUR / mois</span>
+          <button class="btn btn-primary js-add-cart" type="button" data-id="service-standard"
+            data-name="Pack Service Standard" data-price="1200">Ajouter au panier</button>
+        </article>
+        <article class="card">
+          <h3>Pack Service Renforce</h3>
+          <p class="text-muted">Support 7j/7, stock securite dedie, intervention sous 48h.</p>
+          <span class="product-price">2 800,00 EUR / mois</span>
+          <button class="btn btn-primary js-add-cart" type="button" data-id="service-renforce"
+            data-name="Pack Service Renforce" data-price="2800">Ajouter au panier</button>
+        </article>
+        <article class="card">
+          <h3>Pack Critical Ops</h3>
+          <p class="text-muted">Cellule prioritaire, supervision continue, intervention rapide multi-sites.</p>
+          <span class="product-price">4 900,00 EUR / mois</span>
+          <button class="btn btn-primary js-add-cart" type="button" data-id="service-critical-ops"
+            data-name="Pack Critical Ops" data-price="4900">Ajouter au panier</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Avantages de l'externalisation + formulaire de contact service -->
+    <section class="section">
+      <div class="container contact-grid">
+        <article class="highlight">
+          <h2 class="section-title">Pourquoi externaliser votre support</h2>
+          <ul class="service-list">
+            <li>Reduction du temps d'arret operationnel</li>
+            <li>Traitees prioritaires des incidents critiques</li>
+            <li>Visibilite complete sur le cycle de vie materiel</li>
+            <li>Equipe experte en protocoles defense</li>
+          </ul>
+        </article>
+        <form class="contact-form" aria-label="Demande service">
+          <label>Organisation
+            <input type="text" required placeholder="Nom de l'organisation">
+          </label>
+          <label>Email
+            <input type="email" required placeholder="contact@organisation.com">
+          </label>
+          <label>Besoin principal
+            <select required>
+              <option value="">Selectionner</option>
+              <option>Support 24/7</option>
+              <option>Formation equipe</option>
+              <option>Maintenance preventive</option>
+              <option>Pack complet</option>
+            </select>
+          </label>
+          <label>Detail mission
+            <textarea rows="4" required placeholder="Contexte, taille unite, contraintes"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Envoyer la demande</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── PIED DE PAGE ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>2026 MILITARY PRO. Tous droits reserves.</p>
+      <p>Services de support et maintenance pour operations exigeantes.</p>
+    </div>
+  </footer>
+
+  <!-- ─── TIROIR PANIER (partagé sur toutes les pages) ──────────── -->
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <header class="cart-header">
+      <div class="cart-title-row">
+        <h2 class="section-title">Votre panier</h2>
+        <button class="icon-btn js-close-cart" type="button">Fermer</button>
+      </div>
+      <p class="text-muted">Le panier est partage entre toutes les pages.</p>
+    </header>
+    <div class="cart-body">
+      <ul class="cart-list" id="cart-list"></ul>
+    </div>
+    <footer class="cart-footer">
+      <p class="cart-summary">Articles: <strong id="cart-items-total">0</strong></p>
+      <p class="cart-summary">Total: <strong id="cart-price-total">0 EUR</strong></p>
+      <div class="hero-actions">
+        <button class="btn btn-outline" id="clear-cart" type="button">Vider</button>
+        <button class="btn btn-primary" id="checkout-cart" type="button">Valider</button>
+      </div>
+    </footer>
+  </aside>
+
+  <!-- Toast de notification + script partagé (menu, panier, filtres) -->
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>

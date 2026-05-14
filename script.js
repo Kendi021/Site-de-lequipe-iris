@@ -293,6 +293,147 @@ function initDevisCalculator() {
   applyProjectPreset();
 }
 
+/* ---------- MODE PRÉSENTATION (style PowerPoint) ---------- */
+
+const SLIDE_TITLES = ['Accueil', 'Équipe & compétences', 'Pourquoi ce projet ?', 'Projets'];
+
+function initSlidePresentation() {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  if (!slides.length) return;
+
+  const dots = document.querySelectorAll('.ppt-dot');
+  const prevBtn = document.getElementById('ppt-prev');
+  const nextBtn = document.getElementById('ppt-next');
+  const currentEl = document.getElementById('ppt-current');
+  const labelEl = document.getElementById('ppt-label');
+  const progressEl = document.getElementById('ppt-progress');
+  let current = 0;
+  let isAnimating = false;
+  const total = slides.length;
+
+  /* Met à jour les indicateurs visuels */
+  function updateUI() {
+    dots.forEach((d, i) => d.classList.toggle('ppt-dot--active', i === current));
+    if (currentEl) currentEl.textContent = current + 1;
+    if (labelEl) labelEl.textContent = SLIDE_TITLES[current] || '';
+    if (prevBtn) prevBtn.disabled = current === 0;
+    if (nextBtn) nextBtn.disabled = current === total - 1;
+    if (progressEl) {
+      progressEl.style.width = `${((current + 1) / total) * 100}%`;
+    }
+  }
+
+  /* Anime les éléments [data-animation] de la diapo activée */
+  function animateSlideElements(slide) {
+    const elements = slide.querySelectorAll('[data-animation]');
+    elements.forEach((el) => el.classList.remove('anime'));
+    elements.forEach((el) => {
+      const delay = Number(el.dataset.animationDelay || 0) + 80;
+      setTimeout(() => el.classList.add('anime'), delay);
+    });
+  }
+
+  /* Navigue vers la diapo à l’indice demandé */
+  function goTo(index) {
+    if (index === current || isAnimating || index < 0 || index >= total) return;
+    isAnimating = true;
+
+    const dir = index > current ? 1 : -1;
+    const outSlide = slides[current];
+    const inSlide = slides[index];
+
+    /* 1. Positionner instantanément la diapo entrante hors écran */
+    inSlide.style.transition = 'none';
+    inSlide.style.transform = `translateX(${dir * 100}%)`;
+    inSlide.style.opacity = '0';
+    inSlide.style.pointerEvents = 'none';
+
+    /* 2. Forcer un repaint */
+    void inSlide.offsetWidth;
+
+    /* 3. Animer la sortie de la diapo courante */
+    const TRANS = 'transform 0.55s cubic-bezier(0.22, 0.68, 0, 1.1), opacity 0.42s ease';
+    outSlide.style.transition = TRANS;
+    outSlide.style.transform = `translateX(${-dir * 100}%)`;
+    outSlide.style.opacity = '0';
+    outSlide.style.pointerEvents = 'none';
+
+    /* 4. Animer l'entrée de la nouvelle diapo (valeurs explicites — réinitialiser à '' réactiverait le CSS qui masque) */
+    inSlide.style.transition = TRANS;
+    inSlide.style.transform = 'translateX(0)';
+    inSlide.style.opacity = '1';
+    inSlide.style.pointerEvents = 'auto';
+
+    current = index;
+    updateUI();
+
+    /* 5. Nettoyage après la transition */
+    setTimeout(() => {
+      /* Remettre la diapo sortante hors écran côté opposé */
+      outSlide.style.transition = 'none';
+      outSlide.style.transform = `translateX(${dir * 100}%)`;
+      void outSlide.offsetWidth;
+      outSlide.style.transition = '';
+      outSlide.style.opacity = '';
+      outSlide.style.pointerEvents = '';
+
+      /* Remonter en haut de la nouvelle diapo */
+      inSlide.scrollTop = 0;
+      inSlide.style.transition = '';
+      /* Laisser transform/opacity inline : le CSS par défaut masquerait la diapo si on les effaçait */
+
+      /* Animations de contenu */
+      animateSlideElements(inSlide);
+
+      /* Barres de compétence sur la diapo équipe */
+      if (inSlide.querySelector('.competence[data-level]')) {
+        applySkillBarsWidth();
+      }
+
+      isAnimating = false;
+    }, 620);
+  }
+
+  /* Boutons précédent / suivant */
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+  /* Points de navigation */
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+  /* Clavier : flèches, Page Up/Down, Espace */
+  window.addEventListener('keydown', (e) => {
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key)) {
+      e.preventDefault();
+      goTo(current + 1);
+    } else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) {
+      e.preventDefault();
+      goTo(current - 1);
+    }
+  });
+
+  /* Swipe tactile */
+  let touchX = 0;
+  document.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 48) {
+      goTo(diff > 0 ? current + 1 : current - 1);
+    }
+  }, { passive: true });
+
+  /* Navigation via boutons data-goto (ex: héros de la diapo 1) */
+  document.querySelectorAll('[data-goto]').forEach((btn) => {
+    btn.addEventListener('click', () => goTo(Number(btn.dataset.goto)));
+  });
+
+  /* Exposition globale pour usages inline éventuels */
+  window.goToSlide = goTo;
+
+  /* Initialisation */
+  updateUI();
+}
+
 /* ---------- LOADER ---------- */
 function initLoader() {
   const loader = document.getElementById('loader');
@@ -310,13 +451,51 @@ function initLoader() {
   }
 }
 
+/**
+ * Animation des étoiles en arrière-plan (effet subtil)
+ */
+function animateStarsBackground() {
+  const starsContainer = document.querySelector('.stars-background');
+  if (!starsContainer) return;
+  
+  const starImg = starsContainer.querySelector('img');
+  if (!starImg) return;
+  
+  // Animation fluide des étoiles
+  let offset = parseFloat(starImg.style.backgroundPositionY || '0px');
+  
+  function updateStars() {
+    offset -= 0.15;
+    starImg.style.backgroundPositionY = `${offset}px`;
+    requestAnimationFrame(updateStars);
+  }
+  
+  // Démarre l'animation
+  requestAnimationFrame(updateStars);
+}
+
 /* ---------- BOOTSTRAP ---------- */
 function initSite() {
+  const isPresentationMode = !!document.querySelector('.slides-wrapper');
+
   decorateElementsForAnimation();
   initMenuAccessibility();
-  initScrollAnimations();
-  initSkillBars();
+
+  if (isPresentationMode) {
+    // Mode présentation : navigation par diapos
+    initSlidePresentation();
+  } else {
+    // Mode scroll classique
+    initScrollAnimations();
+    initSkillBars();
+  }
+
   initDevisCalculator();
+  
+  // Anime les étoiles en arrière-plan (mode présentation)
+  if (isPresentationMode) {
+    animateStarsBackground();
+  }
 }
 
 initLoader();
